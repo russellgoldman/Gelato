@@ -1,1 +1,5 @@
-export teacher from './teacher.png';
+import teacher from './teacher.png';
+
+export {
+  teacher
+}

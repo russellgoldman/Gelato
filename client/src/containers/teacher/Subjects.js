@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './subjects.css';
+import { QuizCreate } from './quizzes/QuizCreate.js';
 
 export class Subjects extends React.Component {
-  constructor(props) { 
+  constructor(props) {
     super(props);
 
-    const views = { 
+    const views = {
       quizForm: 'views/quiz-form',
       newSubjectButton: 'views/new-quiz-button',
     };
@@ -20,7 +21,7 @@ export class Subjects extends React.Component {
 
     this.views = views;
     this.state = {
-      // global state, will connect later 
+      // global state, will connect later
       subjects,
 
       // local state
@@ -46,7 +47,7 @@ export class Subjects extends React.Component {
     if (subjectExists) return;
     const newSubject = { name, quizzes: [] };
     this.setState({
-      subjects: [...subjects, newSubject] 
+      subjects: [...subjects, newSubject]
     });
   }
 
@@ -109,10 +110,10 @@ export class Subjects extends React.Component {
       <div className="pa2 br2 flex flex-column center">
         <input className="pa2" onChange={this.handleSubjectFormChange} />
         <div className="pv2 flex justify-around w-100">
-          <button 
+          <button
             onClick={() => this.handleShowNewSubjectButton()}
             className="bn pointer f6 link br2 ph3 pv2 mb2 dib white bg-red">cancel</button>
-          <button 
+          <button
             onClick={this.handleSubjectFormSubmit}
             className="content-end bn pointer f6 link grow br2 ph3 pv2 mb2 dib white bg-green">create</button>
         </div>
@@ -123,7 +124,7 @@ export class Subjects extends React.Component {
   renderNewSubjectButton(show) {
     if (show !== this.views.newSubjectButton) return;
     return (
-      <div 
+      <div
         onClick={() => this.handleCreateSubject()}
         className="btn-circle bg-green br-100 pa3  mb3"><div>+</div></div>
     );
@@ -137,7 +138,7 @@ export class Subjects extends React.Component {
           <h1 className="f3 pl2">subjects</h1>
           <div className="flex flex-column items-center h-100 overflow-y-scroll">
             {subjects.map((quiz, id) =>
-              <Subject 
+              <Subject
                 key={id}
                 onClick={() => this.handleSwitchSubject(quiz)}
                 onDelete={() => this.handleSubjectDelete(quiz)}
@@ -148,9 +149,11 @@ export class Subjects extends React.Component {
             {this.renderNewSubjectButton(this.state.newSubjectView)}
           </div>
         </div>
-        <div className="fl w-75 bg-light-gray tc">
-          {currentSubject ? currentSubject.name : 'select a subject :)'}
-        </div>
+
+        {/*
+          PLACE QUIZ COMPONENT HERE!!!!!!!!
+        */}
+        <QuizCreate className="fl w-75 tc" subject={this.state.currentSubject}/>
       </div>
 
     );
@@ -172,8 +175,8 @@ function Subject({ name, quizzes, onClick, onDelete }) {
 }
 
 Subject.propTypes = {
-  name: PropTypes.string.required,
+  name: PropTypes.string,
   quizzes: PropTypes.array,
-  onClick: PropTypes.func.required,
-  onDelete: PropTypes.func.required,
+  onClick: PropTypes.func,
+  onDelete: PropTypes.func,
 };

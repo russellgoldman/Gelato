@@ -24,7 +24,9 @@ const styles = {
     justifyContent: 'flex-end',
     backgroundColor: '#3f51b5',
     padding: '1px 0px',
-    maxHeight: '60px'
+    maxHeight: '60px',
+    position: 'sticky',
+    top: '0'
   },
   space1: {
     flex: 20
@@ -44,12 +46,12 @@ const styles = {
   nameContainer: {
     display: 'flex',
     flex: 3,
-    backgroundColor: '#ef5350',
+    backgroundColor: '#4db6ac',
     textAlign: 'center',
     alignItems: 'center',
-    borderRadius: '4%',
+    borderRadius: '5px',
     marginLeft: '3px',
-    boxShadow: '0px 3px 1px #bf4240',
+    boxShadow: '0px 3px 1px #00897b',
     marginTop: '5px',
     marginBottom: '7px'
   },
@@ -63,4 +65,9 @@ const styles = {
   space2: {
     flex: 0.5
   }
+};
+
+Titlebar.defaultProps = {
+  imgAlt: 'Teacher icon',
+  name: 'Dr. Shomari Malcolm'
 };
