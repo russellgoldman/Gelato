@@ -1,5 +1,16 @@
+.question-info{
+    position: relative;
+    right: 30%;
+}
+
+.question-info h1{
+    position: relative;
+    left: 4%;
+    color:red;
+}
+
 button{
-    height: 100px;
+    height: 50px;
     width: 400px;
     border-radius: 25px;
     background: none;
@@ -8,7 +19,7 @@ button{
 }
 
 button:hover{
-    height: 100px;
+    height: 50px;
     width: 400px;
     border-radius: 25px;
     background: green;

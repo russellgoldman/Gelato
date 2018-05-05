@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import userSprite from './user-sprite.png';
+import userSprite from './user-sprite.gif';
 import monsterSprite from './monster-sprite.png';
 import './BattleField.css';
 

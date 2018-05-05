@@ -5,8 +5,10 @@ class MCQuestion extends Component {
   render() {
     return (
         <div className='question-container'>
-            <h3>Question #1</h3>
-            <h3>What is 2x2?</h3>
+            <div className='question-info'>
+              <h3>Question #1</h3>
+              <h1>What is 2x2 ?</h1>
+            </div>
             <button>Option 1</button>
             <button>Option 2</button>
             <button>Option 3</button>
