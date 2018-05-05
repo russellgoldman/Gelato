@@ -33,6 +33,21 @@ ul {
   margin-left: 30px;
   padding: 10px;
   background-color: #008080;
+  opacity: 0.6;
   border-radius: 10px;
   text-align: center;
+}
+
+.course-item:hover{
+    font-size:1.2rem;
+    line-height: 2rem;
+    width: 400px;
+    height: 100px;
+    margin: 10px;
+    margin-left: 30px;
+    padding: 10px;
+    background-color: #008080;
+    opacity: 1;
+    border-radius: 10px;
+    text-align: center;
 }
