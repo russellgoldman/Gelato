@@ -1,0 +1,53 @@
+.student-class-container {
+  flex-grow: 2;
+  margin-top: 5px;
+  background-color: white;
+  height: 80vh;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.student-class-container .map-title{
+  color: #e1bee7;
+  text-align: left;
+  padding-left: 35px;
+}
+
+.student-class-container .greeting-msg{
+  padding-left: 30px;
+}
+
+ul {
+  padding:0;
+  list-style:none;
+  width: auto;
+  margin: auto;
+}
+
+.course-item{
+  font-size:1.2rem;
+  line-height: 2rem;
+  width: 400px;
+  height: 100px;
+  margin: 10px;
+  margin-left: 30px;
+  padding: 10px;
+  background-color: #008080;
+  opacity: 0.6;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.course-item:hover{
+    font-size:1.2rem;
+    line-height: 2rem;
+    width: 400px;
+    height: 100px;
+    margin: 10px;
+    margin-left: 30px;
+    padding: 10px;
+    background-color: #008080;
+    opacity: 1;
+    border-radius: 10px;
+    text-align: center;
+}

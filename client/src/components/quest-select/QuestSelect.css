@@ -1,0 +1,50 @@
+.class-container {
+    flex-grow: 2;
+    max-height: 372px;
+    background-color: white;
+    margin: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+
+  .class-container h2{
+    padding-left: 30px;
+    color: #e1bee7;
+  }
+
+  .class-list-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 560px;
+  }
+  
+  ul {
+    padding:0;
+    list-style:none;
+    width: auto;
+    margin: auto;
+  }
+  
+  .class-item{
+    font-size:1.2rem;
+    line-height: 2rem;
+    width: 120px;
+    height: 180px;
+    background-color: blue;
+    opacity: 0.6;
+    margin: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .class-item:hover{
+    font-size:1.2rem;
+    line-height: 2rem;
+    width: 120px;
+    height: 180px;
+    background-color: blue;
+    opacity: 1;
+    margin: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }

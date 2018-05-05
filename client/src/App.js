@@ -1,86 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import StudentSideNav from './components/student-side-nav/StudentSideNav';
-import BattleField from './components/battle-field/BattleField';
-import MCQuestion from './components/mc-question/MCQuestion';
+import { TeacherView } from './containers/teacher';
+import { StudentView } from './containers/student';
 
 class App extends Component {
   constructor() {
     super();
-    
-    this.state = {
-      prevAnswer: null,
-      attack: false,
-      correctAnswer: false,
-      questions: [
-        {
-          id: 0,
-          question: "2x2",
-          answers: [
-            1,
-            4,
-            3,
-            5
-          ],
-          correctAnswer: 4,
-        },
-        {
-          id: 1,
-          question: "2x4",
-          answers: [
-            1,
-            2,
-            8,
-            5
-          ],
-          correctAnswer: 8,
-        }
-      ],
-      currentQuestionId: 0,
-    }
-  }
-  
-  handleAnswer = (answer) => {
-    const { questions, currentQuestionId, prevAnswer } = this.state;
-    const question = questions[currentQuestionId];
-    
-    if (answer === prevAnswer) {
-      this.setState({ attack: false });
+    const views = {
+      student: 'views/student',
+      teacher: 'views/teacher',
     };
 
-    this.setState({
-      prevAnswer: answer,
-      correctAnswer: answer === question.correctAnswer,
-      attack: true,
-    });
+    this.views = views;
+    this.state = {
+      currentView: views.student
+    };
   }
-  
-  stopAttack = () => {
-    // set new question vars based on next question
-    //stop animation and re render question UI
-    console.log("stopped!");
-    this.setState({
-      prevAnswer: null,
-      attack: false,
-      correctAnswer: false,
-       currentQuestionId: this.state.currentQuestionId+1
-    });
- }
-  
+
+  toggleView() {
+    const setView = (currentView) => this.setState({ currentView });
+
+    const { currentView } = this.state;
+    switch (currentView) {
+
+      case this.views.student:
+        return setView(this.views.teacher);
+
+      case this.views.teacher:
+        return setView(this.views.student);
+
+      default: return;
+
+    }
+  }
+
   render() {
+    const { currentView } = this.state;
+    const show = (view, component) => currentView === view && component;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        <div className='screen-container'> 
-          <StudentSideNav />
-          <div className='battle-screen-container'>
-            <BattleField onAnimationComplete={this.stopAttack} attack={this.state.attack} hit={this.state.correctAnswer} />
-            <MCQuestion {...this.state.questions[this.state.currentQuestionId]} onAnswerSelected={this.handleAnswer}/>
-          </div>
-        </div>
+      <div>
+        {/* the button below is temporary ... will remove :)*/}
+        <button onClick={() => this.toggleView()}>toggle</button>
+        {show(this.views.student, <StudentView />)}
+        {show(this.views.teacher, <TeacherView />)}
       </div>
     );
   }
