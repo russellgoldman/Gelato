@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Customers from './components/customers';
+import StudentSideNav from './components/student-side-nav/StudentSideNav';
+import BattleField from './components/battle-field/BattleField';
+import MCQuestion from './components/mc-question/MCQuestion';
 
 class App extends Component {
   render() {
@@ -9,9 +11,14 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">React Express Starter</h1>
         </header>
-        <Customers />
+        <div className='screen-container'> 
+          <StudentSideNav />
+          <div className='battle-screen-container'>
+            <BattleField />
+            <MCQuestion />
+          </div>
+        </div>
       </div>
     );
   }

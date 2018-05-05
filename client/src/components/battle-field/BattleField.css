@@ -1,0 +1,25 @@
+.battle-top-container{
+    display: flex;
+    flex-direction: row;
+}
+
+h3{
+    color: red;
+}
+
+.user-sprite{
+    flex-grow: 1;
+}
+.user-sprite img{
+    width: 200px;
+    height:200px;
+}
+
+.monster-sprite{
+    flex-grow: 1;
+}
+
+.monster-sprite img{
+    width: 200px;
+    height:200px;  
+}
