@@ -1,8 +1,8 @@
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
-import { Titlebar } from 'src/components/titlebar';
-import teacher from 'src/images/teacher.png';
+import { Titlebar } from '../../components/titlebar.js';
+import teacher from '../../images/teacher.png';
 import { Analytics } from './Analytics';
 import { Subjects } from './Subjects';
 import './index.css';
