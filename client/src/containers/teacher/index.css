@@ -1,0 +1,18 @@
+.tab-container {
+  width: 100%;
+  background-color: red;
+}
+
+.tab-nav {
+  display: flex;
+  list-style-type: none;
+}
+
+.tab-nav-item {
+  padding: 0.5rem;
+  background-color: green;
+}
+
+.tab-panel {
+  background-color: blue;
+}

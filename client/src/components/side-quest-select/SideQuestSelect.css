@@ -1,0 +1,53 @@
+  .side-quest-container{  
+  }
+  
+  .side-quest-list-container{
+    position: relative;
+    display: flex;
+    background-color: white;
+    transform: translate(90px, -135px);
+    border-radius: 10px;
+    z-index: 1;
+  }
+
+  .side-quest-container h3{
+    position: relative;
+    background-color: white;
+    transform: translate(90px, -100px);
+    border-radius: 10px;
+    z-index: 2;
+    text-align: left;
+    padding: 10px;
+    color: #e1bee7;
+  }
+  
+  ul {
+    padding:0;
+    list-style:none;
+    width: auto;
+    margin: auto;
+  }
+  
+  .side-quest-item{
+    font-size:1.2rem;
+    line-height: 2rem;
+    width: 150px;
+    height: 60px;
+    margin: 20px;
+    background-color: blue;
+    opacity: 0.6;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .side-quest-item:hover{
+    font-size:1.2rem;
+    line-height: 2rem;
+    width: 150px;
+    height: 60px;
+    margin: 20px;
+    background-color: blue;
+    opacity: 1;
+    border: none;
+    border-radius: 10px;
+  }

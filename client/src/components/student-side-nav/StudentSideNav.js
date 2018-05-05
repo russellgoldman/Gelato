@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import coin from './coin.png';
 import './student-side-nav.css';
 
 class  StudentSideNav extends Component {
