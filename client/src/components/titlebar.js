@@ -63,4 +63,4 @@ const styles = {
   space2: {
     flex: 0.5
   }
-}
+};

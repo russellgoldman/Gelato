@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Customers from './components/customers';
+import {Titlebar} from './components/titlebar';
+import teacher from './images/teacher.png'
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">React Express Starter</h1>
-        </header>
-        <Customers />
+      <div>
+        <Titlebar imgSrc={teacher} imgAlt='Teacher icon' name='Russell Goldman' />
       </div>
     );
   }
