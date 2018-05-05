@@ -15,7 +15,7 @@ class BattleField extends Component {
 
   animate = () => {
     const stopAnimation = () => setTimeout(
-      () => this.setState({ animate: false },() =>  this.props.onAnimationComplete())
+      () => this.setState({ animate: false }, () => this.props.onAnimationComplete())
     , 2000);
 
     // this.setState({
@@ -38,7 +38,7 @@ class BattleField extends Component {
         }, () => setTimeout(() => {
           this.setState({
             animate: false
-          })
+          }, this.props.onAnimationComplete)
         }, 2000))
      } 
    }
