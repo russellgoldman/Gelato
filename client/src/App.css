@@ -26,12 +26,12 @@
 }
 
 .screen-container{
-  background-color: grey;
+  background-color: #F5F5F5;
 }
 
 .main-screen {
   display: flex;
-  background: grey;
+  background: #F5F5F5;
   height: 100vh;
 }
 
