@@ -10,6 +10,10 @@
 .student-class-container .map-title{
   color: #e1bee7;
   text-align: left;
+  padding-left: 35px;
+}
+
+.student-class-container .greeting-msg{
   padding-left: 30px;
 }
 
@@ -20,13 +24,15 @@ ul {
   margin: auto;
 }
 
-li{
+.course-item{
   font-size:1.2rem;
   line-height: 2rem;
   width: 400px;
-  height: 50px;
-  border-color: black;
-  border-style: solid;
-  margin: 20px;
-  padding: 20px;
+  height: 100px;
+  margin: 10px;
+  margin-left: 30px;
+  padding: 10px;
+  background-color: #008080;
+  border-radius: 10px;
+  text-align: center;
 }
