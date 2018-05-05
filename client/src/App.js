@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Titlebar } from './components/titlebar';
-import teacher from './images/teacher.png';
+import { TeacherView } from './containers/teacher';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Titlebar imgSrc={teacher} imgAlt="Teacher avatar" name="Russell Goldman"></Titlebar>
+        <TeacherView />
       </div>
     );
   }
