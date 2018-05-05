@@ -17,7 +17,7 @@ class Customers extends Component {
 
   render() {
     return (
-      <div>
+      <div className='customer-container'>
         <h2>Customers</h2>
         <ul>
         {this.state.customers.map(customer => 

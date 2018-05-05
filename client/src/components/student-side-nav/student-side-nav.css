@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    background-color: blueviolet;
+    height: 80vh;
+    margin: 0 !important;
+}
+
+.stat-item {
+    flex-grow: 1;
+}
+
+img {
+    width: 60px;
+    height: 60px;
+}
