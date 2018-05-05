@@ -24,7 +24,9 @@ const styles = {
     justifyContent: 'flex-end',
     backgroundColor: '#3f51b5',
     padding: '1px 0px',
-    maxHeight: '60px'
+    maxHeight: '60px',
+    position: 'sticky',
+    top: '0'
   },
   space1: {
     flex: 20
@@ -47,7 +49,7 @@ const styles = {
     backgroundColor: '#ef5350',
     textAlign: 'center',
     alignItems: 'center',
-    borderRadius: '4%',
+    borderRadius: '5px',
     marginLeft: '3px',
     boxShadow: '0px 3px 1px #bf4240',
     marginTop: '5px',
