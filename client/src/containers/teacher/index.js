@@ -40,18 +40,17 @@ export class TeacherView extends React.Component {
   render() {
     return (
       <div>
-        <Titlebar imgSrc={teacher} imgAlt="Teacher avatar" name="Russell Goldman"></Titlebar>
+        <Titlebar imgSrc={teacher} imgAlt="Teacher avatar"></Titlebar>
         <Sidebar>
         </Sidebar>
         <Tabs className="">
-
           <TabList className="flex list">
             <Tab
-              onClick={this.handleSwitchToAnalytics} 
+              onClick={this.handleSwitchToAnalytics}
               className="outline w-25 pa3 mr2">
               Analytics
             </Tab>
-            <Tab 
+            <Tab
               onClick={this.handleSwitchToGameView}
               className="outline w-25 pa3 mr2">
               Create Section

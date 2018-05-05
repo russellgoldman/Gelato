@@ -64,3 +64,8 @@ const styles = {
     flex: 0.5
   }
 };
+
+Titlebar.defaultProps = {
+  imgAlt: 'Teacher icon',
+  name: 'Dr. Shomari Malcolm'
+};
