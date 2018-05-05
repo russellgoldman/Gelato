@@ -27,6 +27,11 @@
 
 .main-screen {
   display: flex;
+  background: #FAFAFA;
+}
+
+.welcome-msg{
+  width:500px;
 }
 
 .sub-screen{
