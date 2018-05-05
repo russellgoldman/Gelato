@@ -7,6 +7,12 @@
   border-radius: 10px;
 }
 
+.student-class-container .map-title{
+  color: #e1bee7;
+  text-align: left;
+  padding-left: 30px;
+}
+
 ul {
   padding:0;
   list-style:none;

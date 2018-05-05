@@ -6,6 +6,9 @@ class SideQuestSelect extends Component {
   render() {
     return (
       <div className='side-quest-container'>
+        <div>
+          <h3>Available Side Quests</h3>
+        </div>
         <ul className='side-quest-list-container'>
           <li className='side-quest-item'>Side Quest 1</li>
           <li className='side-quest-item'>Side Quest 2</li>
