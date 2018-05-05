@@ -122,15 +122,15 @@ export class QuizCreate extends Component {
         <div style={styles.space}/>
         <div style={styles.innerContainer}>
           <div style={styles.subjectContainer}>
-            <p style={{ color: '#F5f5f5', marginLeft: '10px', paddingTop: '15px', marginBottom: '-5px' }}>Subject > {capitalizeFirstLetter(this.props.subject.name)}</p>
-            <h1 style={{ color: '#343452', marginLeft: '10px' }}>{this.displayQuizName()}</h1>
+            <p style={{ color: '#F5f5f5', marginLeft: '12px', paddingTop: '20px', marginBottom: '-8px' }}>Subject > {capitalizeFirstLetter(this.props.subject.name)}</p>
+            <h1 style={{ color: '#343452', marginLeft: '12px' }}>{this.displayQuizName()}</h1>
           </div>
           <div style={styles.spaceHorizontal}>
           </div>
           <div style={styles.quizInputFormContainer}>
             <form>
               <label style={{ fontFamily: 'Helvetica', fontSize: '22px', fontWeight: 'bold' }}>
-                Name:
+                Name
                 <div>
                   <div style={{ margin: '10px' }}/>
                   <input style={styles.quizNameInputStyle} type="text" value={this.state.quizName}
@@ -142,8 +142,10 @@ export class QuizCreate extends Component {
           <div style={styles.quizInputFormContainer}>
             <form>
               <label style={{ fontFamily: 'Helvetica', fontSize: '22px', fontWeight: 'bold' }}>
-                Passing Grade: (%)
+
                 <div>
+                  <p style={{ display: 'inline', fontFamily: 'Helvetica',
+                    fontSize: '22px', fontWeight: 'bold' }}>Passing Grade (%)</p>
                   <div style={{ margin: '10px' }}/>
                   <input style={styles.passingGradeInputStyle} type="text" value={this.state.passingGrade}
                     onChange={this.passingGradeChange.bind(this)} onClick={this.passingGradeClick.bind(this)} />
@@ -160,6 +162,10 @@ export class QuizCreate extends Component {
               {this.renderStatusButtons()}
             </div>
           </div>
+          <div>
+            <button style={styles.nextButtonContainer} type="button">Next</button>
+          </div>
+          <div style={styles.spaceHorizontal}/>
         </div>
       </div>
     );
@@ -227,5 +233,16 @@ const styles = {
     fontSize: '14px',
     borderRadius: '5px',
     borderColor: '#c9c9c9'
+  },
+  nextButtonContainer: {
+    backgroundColor: '#3f51b5',
+    color: 'white',
+    padding: '7px 50px',
+    textAlign: 'center',
+    fontSize: '14px',
+    borderRadius: '5px',
+    borderColor: '#c9c9c9',
+    marginLeft: '10px',
+    marginBottom: '2px'
   }
 };
