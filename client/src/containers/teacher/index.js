@@ -1,6 +1,8 @@
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
+import { Titlebar } from 'src/components/titlebar';
+import teacher from 'src/images/teacher.png';
 import { Analytics } from './Analytics';
 import { Subjects } from './Subjects';
 import './index.css';
@@ -38,6 +40,7 @@ export class TeacherView extends React.Component {
   render() {
     return (
       <div>
+        <Titlebar imgSrc={teacher} imgAlt="Teacher avatar" name="Russell Goldman"></Titlebar>
         <Sidebar>
         </Sidebar>
         <Tabs className="">
