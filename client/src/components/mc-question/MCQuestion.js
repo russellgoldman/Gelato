@@ -9,10 +9,10 @@ class MCQuestion extends Component {
               <h3>Question #1</h3>
               <h1>What is 2x2 ?</h1>
             </div>
-            <button>Option 1</button>
-            <button>Option 2</button>
-            <button>Option 3</button>
-            <button>Option 4</button>
+            <button>8</button>
+            <button>4</button>
+            <button>2</button>
+            <button>10</button>
             <div>
               <button className='answer-btn'>NEXT</button>
             </div>

@@ -27,7 +27,7 @@
 }
 
 .battle-screen-container{
-  background-color: #333;
+  background-image: url("battle-scene.jpg");
   flex-grow: 4;
 }
 
