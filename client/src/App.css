@@ -25,13 +25,21 @@
   font-size: large;
 }
 
+.screen-container{
+  background-color: grey;
+}
+
 .main-screen {
   display: flex;
-  background: #FAFAFA;
+  background: grey;
+  height: 100vh;
 }
 
 .welcome-msg{
-  width:500px;
+  position: relative;
+  width: 200px;
+  height: 50px;
+  left: 30%;
 }
 
 .sub-screen{

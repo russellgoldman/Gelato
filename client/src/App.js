@@ -14,17 +14,15 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Project Gelato</h1>
         </header>
-        <div className ='main-screen'>
-          <StudentSideNav />
-          <StudentClassSelect />
-          <QuestSelect />
-        </div>
-        <div className='sub-screen'>
-          <SideQuestSelect />
-        </div>
-        <div>
-          <button className='play-btn'>PLAY</button>
-        </div>
+          <div className='main-screen'>
+            <StudentSideNav />
+            <StudentClassSelect />
+            <QuestSelect />
+            <div className='sub-screen'>
+              <SideQuestSelect />
+            </div>
+          </div>
+          <div><button className='play-btn'>PLAY</button></div>
       </div>
     );
   }

@@ -5,7 +5,8 @@ class StudentClassSelect extends Component {
 
   render() {
     return (
-      <div className='class-container'>
+      <div className='student-class-container'>
+        <h2>Hi Alice, Welcome to Grade 5 Math!</h2>
         <ul>
           <li>Class 1</li>
           <li>Class 2</li>

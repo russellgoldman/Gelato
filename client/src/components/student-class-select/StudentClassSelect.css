@@ -1,5 +1,10 @@
-.class-container {
+.student-class-container {
   flex-grow: 2;
+  margin-top: 5px;
+  background-color: white;
+  height: 80vh;
+  margin: 20px;
+  border-radius: 10px;
 }
 
 ul {
