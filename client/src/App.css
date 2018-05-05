@@ -26,6 +26,13 @@
   display: flex;
 }
 
+.sub-screen{
+  position: absolute;
+  right: 9%;
+  bottom: 2%;
+}
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

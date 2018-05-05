@@ -1,0 +1,26 @@
+.class-container {
+    flex-grow: 2;
+    max-height: 372px;
+  }
+
+  .class-list-container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  ul {
+    padding:0;
+    list-style:none;
+    width: auto;
+    margin: auto;
+  }
+  
+  .class-item{
+    font-size:1.2rem;
+    line-height: 2rem;
+    width: 100px;
+    height: 100px;
+    border-color: black;
+    border-style: solid;
+    margin: 20px;
+  }

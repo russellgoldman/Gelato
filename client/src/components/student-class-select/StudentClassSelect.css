@@ -1,0 +1,21 @@
+.class-container {
+  flex-grow: 2;
+}
+
+ul {
+  padding:0;
+  list-style:none;
+  width: auto;
+  margin: auto;
+}
+
+li{
+  font-size:1.2rem;
+  line-height: 2rem;
+  width: 400px;
+  height: 50px;
+  border-color: black;
+  border-style: solid;
+  margin: 20px;
+  padding: 20px;
+}
