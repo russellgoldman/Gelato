@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import coin from './coin.png';
+import scroll from './scroll.png';
 import './student-side-nav.css';
 
 class  StudentSideNav extends Component {
@@ -13,11 +14,15 @@ class  StudentSideNav extends Component {
         </div>
         <div className='brief-stats'>
           <div className='single-stat'>
-            <div className='circle'></div>
+            <div className='circle'>
+              <img src={scroll} alt='scroll'></img>
+            </div>
             <div className='rectangle'></div>
           </div>
           <div className='single-stat'>
-            <div className='circle'></div>
+            <div className='coin-circle-container'>
+              <img className='coin-circle' src={coin} alt='coin'></img>
+            </div>
             <div className='rectangle'></div>
           </div>
         </div>

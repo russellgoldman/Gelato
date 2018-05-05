@@ -29,8 +29,8 @@
 }
 
 img {
-    width: 100px;
-    height: 200px;
+    width: 45px;
+    height: 45px;
 }
 
 .profile-box{
@@ -51,7 +51,25 @@ img {
     position: relative;
     z-index: 2;
     left: 10%;
-    transform: translate(0px, 6px); 
+    transform: translate(0px, 2px); 
+}
+
+.coin-circle-container{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    left: 10%;
+    transform: translate(0px, -5px);
+}
+
+.coin-circle{
+    width: 40px;
+    height: 40px;
+    transform: translate(5px, 4px);
 }
 
 .rectangle{
