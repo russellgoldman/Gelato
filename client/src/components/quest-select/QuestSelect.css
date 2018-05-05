@@ -7,6 +7,11 @@
     border-radius: 10px;
   }
 
+  .class-container h2{
+    padding-left: 30px;
+    color: #e1bee7;
+  }
+
   .class-list-container{
     display: flex;
     flex-wrap: wrap;
@@ -29,7 +34,7 @@
     opacity: 0.6;
     margin: 10px;
     border-radius: 10px;
-    margin-top: 60px;
+    margin-top: 20px;
   }
 
   .class-item:hover{
@@ -41,5 +46,5 @@
     opacity: 1;
     margin: 10px;
     border-radius: 10px;
-    margin-top: 60px;
+    margin-top: 20px;
   }

@@ -50,23 +50,25 @@
 
 .play-btn{
   position: absolute;
-  bottom: 1%;
-  right: 18%;
-  width: 100px;
-  height: 50px;
-  background: none;
-  border-radius: 25px;
+  bottom: 12%;
+  right: 15%;
+  width: 250px;
+  height: 80px;
+  background: #BA55D3;
+  color: white;
+  border-radius: 10px;
+  border-style: none;
 }
 
 .play-btn:hover{
   position: absolute;
-  bottom: 1%;
-  right: 18%;
-  width: 100px;
-  height: 50px;
+  bottom: 12%;
+  right: 15%;
+  width: 250px;
+  height: 80px;
   background: green;
   color: white;
-  border-radius: 25px;
+  border-radius: 10px;
 }
 
 

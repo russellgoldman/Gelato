@@ -10,9 +10,9 @@ class SideQuestSelect extends Component {
           <h3>Available Side Quests</h3>
         </div>
         <ul className='side-quest-list-container'>
-          <li className='side-quest-item'>Side Quest 1</li>
-          <li className='side-quest-item'>Side Quest 2</li>
-          <li className='side-quest-item'>Side Quest 3</li>
+          <li><button className='side-quest-item'>Side Quest 1</button></li>
+          <li><button className='side-quest-item'>Side Quest 2</button></li>
+          <li><button className='side-quest-item'>Side Quest 3</button></li>
         </ul>
       </div>
     );
