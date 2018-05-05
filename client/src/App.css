@@ -9,18 +9,74 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 50px;
   padding: 20px;
   color: white;
 }
 
 .App-title {
   font-size: 1.5em;
+  position: absolute;
+  top: 5%;
+  align-self: center;
 }
 
 .App-intro {
   font-size: large;
 }
+
+.screen-container{
+  display: flex;
+}
+
+.battle-screen-container{
+  background-image: url("battle-scene.jpg");
+  flex-grow: 4;
+}
+
+
+.main-screen {
+  display: flex;
+  background: #F5F5F5;
+  height: 100vh;
+}
+
+.welcome-msg{
+  position: relative;
+  width: 200px;
+  height: 50px;
+  left: 30%;
+}
+
+.sub-screen{
+  position: absolute;
+  right: 9%;
+  bottom: 10%;
+}
+
+.play-btn{
+  position: absolute;
+  bottom: 12%;
+  right: 15%;
+  width: 250px;
+  height: 80px;
+  background: #BA55D3;
+  color: white;
+  border-radius: 10px;
+  border-style: none;
+}
+
+.play-btn:hover{
+  position: absolute;
+  bottom: 12%;
+  right: 15%;
+  width: 250px;
+  height: 80px;
+  background: green;
+  color: white;
+  border-radius: 10px;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

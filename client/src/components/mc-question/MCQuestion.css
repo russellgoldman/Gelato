@@ -1,0 +1,47 @@
+.question-info{
+    position: relative;
+    right: -4%;
+}
+
+.question-info h1{
+    position: relative;
+    /* left: 40%; */
+
+    color:red;
+}
+
+button{
+    height: 50px;
+    width: 400px;
+    border-radius: 25px;
+    background: none;
+    margin: 20px;
+    color: white;
+}
+
+button:hover{
+    height: 50px;
+    width: 400px;
+    border-radius: 25px;
+    background: green;
+    margin: 20px;
+    color: white;
+}
+
+.answer-btn{
+    height: 50px;
+    width: 400px;
+    border-radius: 25px;
+    background: none;
+    margin: 20px;
+    color: white;   
+}
+
+.answer-btn:hover{
+    height: 50px;
+    width: 400px;
+    border-radius: 25px;
+    background: green;
+    margin: 20px;
+    color: white;    
+}
