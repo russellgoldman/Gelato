@@ -22,6 +22,9 @@ class App extends Component {
         <div className='sub-screen'>
           <SideQuestSelect />
         </div>
+        <div>
+          <button className='play-btn'>PLAY</button>
+        </div>
       </div>
     );
   }
