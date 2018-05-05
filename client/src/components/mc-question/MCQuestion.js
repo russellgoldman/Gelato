@@ -19,7 +19,7 @@ class MCQuestion extends Component {
     return (
         <div className='question-container'>
             <div className='question-info'>
-              <h3>Question {this.props.id}</h3>
+              <h3>Question {this.props.id + 1}</h3>
               <h1>{this.props.question}</h1>
             </div>
             {this.props.answers.map((answer, id) => 

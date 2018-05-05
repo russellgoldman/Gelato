@@ -1,11 +1,12 @@
 .question-info{
     position: relative;
-    right: 30%;
+    right: -4%;
 }
 
 .question-info h1{
     position: relative;
-    left: 4%;
+    /* left: 40%; */
+
     color:red;
 }
 

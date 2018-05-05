@@ -17,7 +17,7 @@ export class StudentView extends React.Component {
       questions: [
         {
           id: 0,
-          question: "2x2",
+          question: "What is 2x2",
           answers: [
             1,
             4,
@@ -28,7 +28,7 @@ export class StudentView extends React.Component {
         },
         {
           id: 1,
-          question: "2x4",
+          question: "What is 2x4",
           answers: [
             1,
             2,
@@ -61,11 +61,12 @@ export class StudentView extends React.Component {
     // set new question vars based on next question
     //stop animation and re render question UI
     console.log("stopped!");
+    let new_question_num = this.state.currentQuestionId + 1 < this.state.questions.length ? this.state.currentQuestionId + 1 : 0;
     this.setState({
       prevAnswer: null,
       attack: false,
       correctAnswer: false,
-       currentQuestionId: this.state.currentQuestionId+1
+      currentQuestionId: new_question_num
     });
   }
 

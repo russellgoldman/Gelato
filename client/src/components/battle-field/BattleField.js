@@ -52,7 +52,7 @@ class BattleField extends Component {
               <img src={monsterSprite} alt='monster sprite'></img>
             </div>
             <div className={`user-sprite ${this.state.animate ? 'move-user' : ''}`}>
-              <h3>Player 1</h3>
+              <h3 className='player-name'>Player 1</h3>
               <img src={userSprite} alt='user sprite'></img>
             </div>
           </div>

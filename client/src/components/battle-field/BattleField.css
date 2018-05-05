@@ -1,6 +1,7 @@
 .battle-top-container{
     display: flex;
     flex-direction: row;
+    transform: translateX(10%)
 }
 
 h3{
@@ -10,9 +11,14 @@ h3{
 .user-sprite{
     flex-grow: 1;
 }
+
 .user-sprite img{
     width: 300px;
     height:200px;
+}
+
+.user-sprite .player-name{
+    margin-left: 15%;
 }
 
 .monster-sprite{
