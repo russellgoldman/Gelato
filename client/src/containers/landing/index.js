@@ -8,6 +8,7 @@ export class LandingView extends React.Component {
   render() {
     return (
     <div className='landing-conatiner'>
+        <div><button className='welcome-tag'>Select Status</button></div>
         <div className='teacher-container'>
             <div className='teacher-content'>
                 <h1>Are you a teacher?...</h1>

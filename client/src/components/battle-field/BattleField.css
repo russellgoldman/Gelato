@@ -41,8 +41,8 @@ h3{
 
 
 .move-monster .hit-box{
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     background-color: red;
     position: absolute;
     top: 0;
@@ -68,4 +68,5 @@ h3{
 .hit-ui{
     position: absolute;
     left: 60%;
+    top: 50%;
 }

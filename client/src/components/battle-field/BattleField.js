@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import userSprite from './user-sprite4.png';
-import monsterSprite from './monster-sprite.png';
+import monsterSprite from './dragon.png';
+import greenMonster from './green-monster.png';
 import './BattleField.css';
 
 let color = 'red';
@@ -9,6 +10,7 @@ class BattleField extends Component {
     super(props);
     this.state = {
       animate: false,
+      monster: this.props.monster
     };
   }
 
@@ -57,7 +59,7 @@ class BattleField extends Component {
                 <h1>-1</h1>
               </div>
               <h3 className='monster-name'>Scary Monster</h3>
-              <img src={monsterSprite} alt='monster sprite'></img>
+              <img src={this.props.monster} alt='monster sprite'></img>
             </div>
           </div>
           <div className='hit-ui'>

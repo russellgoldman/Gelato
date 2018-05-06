@@ -8,7 +8,7 @@ class  StudentSideNav extends Component {
       <div className='container'>
         <div className='stat-item'>
           <div className='profile-box'></div>
-          <div className='profile-name'>Alice Liddel</div>
+          <div className='profile-name'><h5>Alice Liddel</h5></div>
         </div>
         <div className='brief-stats'>
           <div className='single-stat'>
