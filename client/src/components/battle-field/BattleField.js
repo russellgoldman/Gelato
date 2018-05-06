@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import userSprite from './user-sprite.gif';
+import userSprite from './user-sprite2.svg';
 import monsterSprite from './monster-sprite.png';
 import './BattleField.css';
 
@@ -47,13 +47,14 @@ class BattleField extends Component {
     return (
         <div>
           <div className='battle-top-container'>
+          <div className={`user-sprite ${this.state.animate ? 'move-user' : ''}`}>
+              <h3 className='player-name'>Player 1</h3>
+              <img src={userSprite} alt='user sprite'></img>
+            </div>
+
             <div className='monster-sprite'>
               <h3>Scary Monster</h3>
               <img src={monsterSprite} alt='monster sprite'></img>
-            </div>
-            <div className={`user-sprite ${this.state.animate ? 'move-user' : ''}`}>
-              <h3 className='player-name'>Player 1</h3>
-              <img src={userSprite} alt='user sprite'></img>
             </div>
           </div>
           <div className='question-ui'>

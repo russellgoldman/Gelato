@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { TeacherView } from './containers/teacher';
 import { StudentView } from './containers/student';
+import { LandingView } from './containers/landing';
 
 class App extends Component {
   constructor() {
@@ -9,6 +10,7 @@ class App extends Component {
     const views = {
       student: 'views/student',
       teacher: 'views/teacher',
+      landing: 'views/landing'
     };
 
     this.views = views;
@@ -29,6 +31,9 @@ class App extends Component {
       case this.views.teacher:
         return setView(this.views.student);
 
+      case this.views.landing:
+        return setView(this.views.landing);
+
       default: return;
 
     }
@@ -42,8 +47,9 @@ class App extends Component {
       <div>
         {/* the button below is temporary ... will remove :)*/}
         <button onClick={() => this.toggleView()}>toggle</button>
+        {show(this.views.teacher, <LandingView />)}
         {show(this.views.student, <StudentView />)}
-        {show(this.views.teacher, <TeacherView />)}
+        {/* {show(this.views.teacher, <TeacherView />)} */}
       </div>
     );
   }

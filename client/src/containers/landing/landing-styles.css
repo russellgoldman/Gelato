@@ -1,0 +1,42 @@
+.landing-container{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.teacher-container{
+    /* inline flex with content moves div ? */
+    display: inline-flex;
+    background-color: #333;
+    height: 91vh;
+    width: 50vw;
+    position: absolute;
+    top: 11.2%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.student-container{ 
+    display: inline-flex;
+    background-color: blue; 
+    height: 91vh;
+    width: 50vw;
+    position: absolute;
+    right: 0%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.teacher-container img {
+    margin-left: 20%;
+    width: 200px;
+    height: 200px;
+}
+
+.student-container img {
+    margin-left: 20%;
+    width: 200px;
+    height: 200px;   
+}
