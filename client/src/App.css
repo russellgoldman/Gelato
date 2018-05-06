@@ -34,7 +34,7 @@
 }
 
 .battle-screen-container{
-  background-image: url("battle-scene.jpg");
+  background-image: url("battle-scene.png");
   background-size: cover;
   flex-grow: 4;
 }
