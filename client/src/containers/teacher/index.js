@@ -44,7 +44,7 @@ export class TeacherView extends React.Component {
         <div className="flex br2 min-h4">
           <Sidebar />
           <Tabs className="w-100 bg-white br4 ma3">
-            <TabList className="flex list">
+            <TabList className="flex list mt0 mb0">
               <Tab
                 onClick={this.handleSwitchToAnalytics}
                 className={`f3 pointer pa3 mr4 ${isCurrentTab(views.analytics)}`}>
