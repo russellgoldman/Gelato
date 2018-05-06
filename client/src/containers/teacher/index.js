@@ -3,11 +3,9 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 import { Analytics } from './Analytics';
 import { Subjects } from './Subjects';
+import { Sidebar } from './Sidebar';
 import './index.css';
 
-const Sidebar = () => (
-  <div className="w-20 bg-dark-purple" />
-);
 
 const views = {
   analytics: 'views/analytics',

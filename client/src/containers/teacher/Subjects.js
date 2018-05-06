@@ -131,7 +131,7 @@ export class Subjects extends React.Component {
     return (
       <div
         onClick={() => this.handleCreateSubject()}
-        className="btn-circle bg-green br-100 pa3 fr mb3 new-subject-button"><div>+</div></div>
+        className="btn-circle bg-teal br-100 pa3 fr mb3 new-subject-button"><div>+</div></div>
     );
   }
 
