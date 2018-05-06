@@ -1,24 +1,29 @@
-  .side-quest-container{  
-  }
-  
-  .side-quest-list-container{
-    position: relative;
+.side-quest-container{
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+ 
+ .side-quest-list-container{
+    position: absolute;
+    top: 0%;
     display: flex;
     background-color: white;
-    transform: translate(90px, -135px);
+    transform: translate(110px, -162px);
     border-radius: 10px;
-    z-index: 1;
+    z-index: 4;
   }
 
   .side-quest-container h3{
     position: relative;
     background-color: white;
-    transform: translate(90px, -100px);
+    transform: translate(110px, -220px);
     border-radius: 10px;
     z-index: 2;
     text-align: left;
     padding: 10px;
     color: #e1bee7;
+    width: 570px;
   }
   
   ul {

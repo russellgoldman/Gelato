@@ -95,14 +95,14 @@ export class StudentView extends React.Component {
 
   render () {
     return (<div>
-        <div className='screen-container'> 
+        {/* <div className='screen-container'> 
           <StudentSideNav />
           <div className='battle-screen-container'>
             <BattleField {...this.state.questions[this.state.currentQuestionId]} onAnimationComplete={this.stopAttack} attack={this.state.attack} hit={this.state.correctAnswer} />
             <MCQuestion {...this.state.questions[this.state.currentQuestionId]} onAnswerSelected={this.handleAnswer}/>
           </div>
-        </div>
-      {/*<div className='main-screen'>
+        </div> */}
+      <div className='main-screen'>
         <StudentSideNav />
         <StudentClassSelect />
         <QuestSelect />
@@ -110,7 +110,7 @@ export class StudentView extends React.Component {
           <SideQuestSelect />
         </div>
       </div>
-      <div><button className='play-btn'>PLAY</button></div>*/}
+      <div><button className='play-btn'>PLAY</button></div>
     </div>);
   }
 }

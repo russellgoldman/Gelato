@@ -1,6 +1,6 @@
-*{
+/* *{
   overflow-x: hidden;
-}
+} */
 
 .App {
   text-align: center;
@@ -61,8 +61,8 @@
 
 .play-btn{
   position: absolute;
-  bottom: 12%;
-  right: 15%;
+  bottom: 3%;
+  right: 10%;
   width: 250px;
   height: 80px;
   background: #BA55D3;
@@ -73,13 +73,14 @@
 
 .play-btn:hover{
   position: absolute;
-  bottom: 12%;
-  right: 15%;
+  bottom: 3%;
+  right: 10%;
   width: 250px;
   height: 80px;
   background: green;
   color: white;
   border-radius: 10px;
+  border-style: none;
 }
 
 
