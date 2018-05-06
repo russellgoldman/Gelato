@@ -138,8 +138,8 @@ export class Subjects extends React.Component {
   render() {
     const { subjects, currentSubject } = this.state;
     return (
-      <div className="outline flex vh-75">
-        <div className="fl w-25 ">
+      <div className="flex">
+        <div className="fl w-30 ">
           <div className="flex-column flex bg-bright-blue subject-title">
             <div>
               {this.renderNewSubjectButton(this.state.newSubjectView)}
@@ -148,7 +148,7 @@ export class Subjects extends React.Component {
               <h1 className="f3 white normal pl4">Subjects</h1>
             </div>
           </div>
-          <div className="flex flex-column items-center h-100 overflow-y-scroll">
+          <div className="flex flex-column items-center overflow-y-scroll STUPID-FIXED-HEIGHT">
             <small className="gray pv2">These are the Worlds your students see</small>
             {this.renderSubjectForm(this.state.newSubjectView)}
             {subjects.map((quiz, id) =>
@@ -166,7 +166,7 @@ export class Subjects extends React.Component {
           PLACE QUIZ COMPONENT HERE!!!!!!!!
         */}
         {this.state.currentSubject
-          ? <QuizCreate className="fl w-75 tc" subject={this.state.currentSubject}/>
+          ? <QuizCreate className="fl w-60 tc" subject={this.state.currentSubject}/>
           : <div>TODO: add class</div>
         }
       </div>

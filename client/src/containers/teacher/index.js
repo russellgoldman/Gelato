@@ -1,13 +1,13 @@
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
-import { Titlebar } from '../../components/titlebar.js';
-import teacher from '../../images/teacher.png';
 import { Analytics } from './Analytics';
 import { Subjects } from './Subjects';
 import './index.css';
 
-const Sidebar = () => (<p>hello</p>);
+const Sidebar = () => (
+  <div className="w-20 bg-dark-purple" />
+);
 
 const views = {
   analytics: 'views/analytics',
@@ -18,14 +18,14 @@ export class TeacherView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentView: views.quizEdit
+      currentView: views.analytics
     };
 
     this.handleSwitchToAnalytics = this.handleSwitchToAnalytics.bind(this);
-    this.handleSwitchToGame = this.handleSwitchToGame.bind(this);
+    this.handleSwitchToQuizEditor = this.handleSwitchToQuizEditor.bind(this);
   }
 
-  handleSwitchToGame() {
+  handleSwitchToQuizEditor() {
     this.setState({
       currentView: views.quizEdit
     });
@@ -38,32 +38,35 @@ export class TeacherView extends React.Component {
   }
 
   render() {
+    const isCurrentTab = view => this.state.currentView === view
+      ? 'bb bw2 b--purple purple'
+      : '';
     return (
-      <div>
-        <Titlebar imgSrc={teacher} imgAlt="Teacher avatar"></Titlebar>
-        <Sidebar>
-        </Sidebar>
-        <Tabs className="">
-          <TabList className="flex list">
-            <Tab
-              onClick={this.handleSwitchToAnalytics}
-              className="outline w-25 pa3 mr2">
-              Analytics
-            </Tab>
-            <Tab
-              onClick={this.handleSwitchToGameView}
-              className="outline w-25 pa3 mr2">
-              Create Section
-            </Tab>
-          </TabList>
+      <div className="bg-light-gray">
+        <div className="flex br2 min-h4">
+          <Sidebar />
+          <Tabs className="w-100 bg-white br4 ma3">
+            <TabList className="flex list">
+              <Tab
+                onClick={this.handleSwitchToAnalytics}
+                className={`f3 pointer pa3 mr4 ${isCurrentTab(views.analytics)}`}>
+                Analytics
+              </Tab>
+              <Tab
+                onClick={this.handleSwitchToQuizEditor}
+                className={`f3 pointer pa3 mr4 ${isCurrentTab(views.quizEdit)}`}>
+                Quiz Editor
+              </Tab>
+            </TabList>
 
-          <TabPanel className="">
-            <Analytics />
-          </TabPanel>
-          <TabPanel className="">
-            <Subjects />
-          </TabPanel>
-        </Tabs>
+            <TabPanel className="">
+              <Analytics />
+            </TabPanel>
+            <TabPanel className="">
+              <Subjects />
+            </TabPanel>
+          </Tabs>
+        </div>
       </div>
     );
   }
