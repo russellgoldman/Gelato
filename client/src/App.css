@@ -107,3 +107,6 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.vh-90 { height: 90vh; }
+.vh-10 { height: 10vh; }
