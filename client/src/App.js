@@ -1,37 +1,81 @@
 import React, { Component } from 'react';
 import './App.css';
 import { TeacherView } from './containers/teacher';
-import { StudentView } from './containers/student';
+import { Titlebar } from './components/titlebar.js';
+import teacher from './images/teacher.png';
+
+const data = {
+  classes: [
+    {
+      name: 'Grade 4 Math 2',
+      active: false,
+      subjects: []
+    },
+    {
+      name: 'Grade 4 Math 1',
+      active: true,
+      subjects: [
+        {
+          name: 'Division',
+          quizzes: ['quiz1', 'quiz2']  
+        },
+        {
+          name: 'Multiplication',
+          quizzes: ['quiz1'] 
+        },
+        {
+          name: 'Addition',
+          quizzes: [] 
+        },
+      ],
+    },
+    {
+      name: 'Grade 5 English',
+      active: false,
+      subjects: []
+    },
+    {
+      name: 'Grade 5 Social Studies',
+      active: false,
+      subjects: []
+    },
+  ]
+};
 
 class App extends Component {
-  constructor() {
-    super();
-    const views = {
-      student: 'views/student',
-      teacher: 'views/teacher',
-    };
-
-    this.views = views;
+  constructor(props) {
+    super(props);
     this.state = {
-      currentView: views.student
+      classes: data.classes,
+      activeClassId: data.classes.findIndex(c => c.active)
     };
+    this.removeSubjectFromActiveCourse = this.removeSubjectFromActiveCourse.bind(this);
+    this.addSubjectToActiveCourse = this.addSubjectToActiveCourse.bind(this);
   }
 
-  toggleView() {
-    const setView = (currentView) => this.setState({ currentView });
+  addSubjectToActiveCourse(subjectName) {
+    const { classes, activeClassId } = this.state;
+    const activeClass = classes[activeClassId];
+    const subjectExists = activeClass.subjects.find(subject => subject.name === subjectName);
+    if (subjectExists) return;
+    const newSubject = { name: subjectName, quizzes: [] };
+    activeClass.subjects = [newSubject, ...activeClass.subjects];
+    classes[activeClassId] = activeClass;
+    this.setState({
+      classes: classes
+    });
+  }
 
-    const { currentView } = this.state;
-    switch (currentView) {
-
-      case this.views.student:
-        return setView(this.views.teacher);
-
-      case this.views.teacher:
-        return setView(this.views.student);
-
-      default: return;
-
-    }
+  removeSubjectFromActiveCourse(subjectName) {
+    const { classes, activeClassId } = this.state;
+    const activeClass = classes[activeClassId];
+    const { subjects } = activeClass;
+    const cleanSubjects = subjects.filter(subject => subject.name !== subjectName);
+    activeClass.subjects = cleanSubjects;
+    classes[activeClassId] = activeClass;
+    this.setState({
+      classes,
+    });
   }
 
   render() {
@@ -39,11 +83,17 @@ class App extends Component {
     const show = (view, component) => currentView === view && component;
 
     return (
-      <div>
-        {/* the button below is temporary ... will remove :)*/}
-        <button onClick={() => this.toggleView()}>toggle</button>
-        {show(this.views.student, <StudentView />)}
-        {show(this.views.teacher, <TeacherView />)}
+      <div className="vh-100">
+        <Titlebar className="vh-10" imgSrc={teacher} imgAlt="Teacher avatar"></Titlebar>
+        <TeacherView 
+          currentClass={this.state.classes[this.state.activeClassId]}
+          classes={this.state.classes}
+          className="vh-90" 
+          fns={{
+            addSubject: this.addSubjectToActiveCourse,
+            removeSubject: this.removeSubjectFromActiveCourse,
+          }}
+        />
       </div>
     );
   }
