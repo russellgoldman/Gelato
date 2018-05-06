@@ -155,7 +155,7 @@ export class Subjects extends React.Component {
           PLACE QUIZ COMPONENT HERE!!!!!!!!
         */}
         {/*<QuizCreate className="fl w-75 tc" subject={this.state.currentSubject}/>*/}
-        <QuizAnswers className="fl w-75 tc" quizName='Multiplication 1' statusLocked={true} subject={this.state.currentSubject}/>
+        {this.state.currentSubject && <QuizAnswers className="fl w-75 tc" quizName='Multiplication 1' statusLocked={true} subject={this.state.currentSubject}/>}
       </div>
 
     );

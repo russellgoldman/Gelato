@@ -1,36 +1,21 @@
 import React, { Component } from 'react';
 import { capitalizeFirstLetter } from '../../../misc-utilities';
+import { checkboxSelect, checkboxNeutral } from '../../../images';
 
 export class QuizAnswers extends Component {
   constructor(props) {
     super(props);
+    const QuestionTypeOptions = ['Multiple Choice', 'Written', 'True or False'];
+    this.QuestionTypeOptions = QuestionTypeOptions;   // adding the local constant onto the class QuizAnswers
+    this.questionNamePlaceholder = true;
 
     this.state = {
       quizName: this.props.quizName,
       statusLocked: this.props.statusLocked,
-      data: [
-        {
-          questionName: 'What is 2 x 2?',
-          questionType: 0,
-          answers: ['5', '1', '4', '3'],
-          correctAnswerIndex: 2     // in the answers array
-        }
-      ],
-      questionType: {
-        // enumeration
-        multipleChoice: {
-          id: 0,
-          chooseFrom: 4   // how many available answers are given
-        },
-        written: {
-          id: 1,
-          chooseFrom: 1
-        },
-        trueOrFalse: {
-          id: 2,
-          chooseFrom: 2
-        }
-      }
+      questionName: 'Write your question here',
+      answers: ['Option A', 'Option B', 'Option C', 'Option D'],
+      correctAnswerIndex: 0,   // preset correct answer is 'Option A'
+      questionTypeChoice: QuestionTypeOptions[0]   // preset is Multiple Choice
     };
   }
 
@@ -39,50 +24,64 @@ export class QuizAnswers extends Component {
   }
 
   questionNameClick(event) {
-    // todo
-  }
-
-  passingGradeChange(event) {
-    if (event.target.value < 0 || event.target.value > 100) {
-      alert('Passing Grade must be a percentage between 0 and 100');
-      return;
-    }
-    this.setState({passingGrade: event.target.value});
-  }
-
-  passingGradeClick(event) {
-    if (this.passingGradePlaceHolder) {
-      this.setState({passingGrade: ''});
-      this.passingGradePlaceHolder = false;
+    if (this.questionNamePlaceholder) {
+      this.setState({questionName: ''});
+      this.questionNamePlaceholder = false;
     }
   }
 
-  lockedButtonClick(event) {
-    if (!this.state.statusLocked) {
-      // if locked is inactive and clicked, make it active
-      this.setState({statusLocked: !this.state.statusLocked});
+  multipleChoiceButtonClick(event) {
+    if (this.state.questionTypeChoice !== 'Multiple Choice') {
+      this.setState({questionTypeChoice: this.QuestionTypeOptions[0]});
     }
   }
 
-  unlockedButtonClick(event) {
-    if (this.state.statusLocked) {
-      // if locked is active and clicked, make it inactive
-      this.setState({statusLocked: !this.state.statusLocked});
+  writtenButtonClick(event) {
+    if (this.state.questionTypeChoice !== 'Written') {
+      this.setState({questionTypeChoice: this.QuestionTypeOptions[1]});
+    }
+  }
+
+  trueOrFalseButtonClick(event) {
+    if (this.state.questionTypeChoice !== 'True or False') {
+      this.setState({questionTypeChoice: this.QuestionTypeOptions[2]});
     }
   }
 
   renderQuestionTypeButtons() {
-    if (this.state.statusLocked) {
-      // locked is active
+    if (this.state.questionTypeChoice === 'Multiple Choice') {
+      // Multiple Choice is selected
       return (
         <div>
           <div style={{ display: 'inline', marginRight: '5px' }}>
-            <button style={styles.statusEnable} type="button"
-              onClick={this.lockedButtonClick.bind(this)}>Locked</button>
+            <button style={styles.questionTypeEnable} type="button"
+              onClick={this.multipleChoiceButtonClick.bind(this)}>Multiple Choice</button>
+          </div>
+          <div style={{ display: 'inline', marginLeft: '5px', marginRight: '5px' }}>
+            <button style={styles.questionTypeDisable} type="button"
+              onClick={this.writtenButtonClick.bind(this)}>Written</button>
           </div>
           <div style={{ display: 'inline', marginLeft: '5px' }}>
-          <button style={styles.statusDisable} type="button"
-            onClick={this.unlockedButtonClick.bind(this)}>Unlocked</button>
+            <button style={styles.questionTypeDisable} type="button"
+              onClick={this.trueOrFalseButtonClick.bind(this)}>True or False</button>
+          </div>
+        </div>
+      );
+    }
+    else if (this.state.questionTypeChoice === 'Written') {
+      return (
+        <div>
+          <div style={{ display: 'inline', marginRight: '5px' }}>
+            <button style={styles.questionTypeDisable} type="button"
+              onClick={this.multipleChoiceButtonClick.bind(this)}>Multiple Choice</button>
+          </div>
+          <div style={{ display: 'inline', marginLeft: '5px', marginRight: '5px' }}>
+            <button style={styles.questionTypeEnable} type="button"
+              onClick={this.writtenButtonClick.bind(this)}>Written</button>
+          </div>
+          <div style={{ display: 'inline', marginLeft: '5px' }}>
+            <button style={styles.questionTypeDisable} type="button"
+              onClick={this.trueOrFalseButtonClick.bind(this)}>True or False</button>
           </div>
         </div>
       );
@@ -90,12 +89,16 @@ export class QuizAnswers extends Component {
     return (
       <div>
         <div style={{ display: 'inline', marginRight: '5px' }}>
-          <button style={styles.statusDisable} type="button"
-            onClick={this.lockedButtonClick.bind(this)}>Locked</button>
+          <button style={styles.questionTypeDisable} type="button"
+            onClick={this.multipleChoiceButtonClick.bind(this)}>Multiple Choice</button>
+        </div>
+        <div style={{ display: 'inline', marginLeft: '5px', marginRight: '5px' }}>
+          <button style={styles.questionTypeDisable} type="button"
+            onClick={this.writtenButtonClick.bind(this)}>Written</button>
         </div>
         <div style={{ display: 'inline', marginLeft: '5px' }}>
-          <button style={styles.statusEnable} type="button"
-            onClick={this.unlockedButtonClick.bind(this)}>Unlocked</button>
+          <button style={styles.questionTypeEnable} type="button"
+            onClick={this.trueOrFalseButtonClick.bind(this)}>True or False</button>
         </div>
       </div>
     );
@@ -108,13 +111,14 @@ export class QuizAnswers extends Component {
         <div style={styles.innerContainer}>
           <div style={styles.subjectContainer}>
             <p style={{ color: '#F5f5f5', marginLeft: '12px', paddingTop: '20px', marginBottom: '-8px' }}>Subject > {capitalizeFirstLetter(this.props.subject.name)}</p>
-            <h1 style={{ color: '#343452', marginLeft: '12px' }}>{this.state.quizName}</h1>
+            <h1 style={{ color: '#343452', marginLeft: '12px'}}>{this.state.quizName}</h1>
           </div>
           <div style={styles.spaceHorizontal}>
           </div>
+          <div style={{ flex: 0.2 }}/>
           <div style={styles.questionInputFormContainer}>
             <form>
-              <label style={{ fontFamily: 'Helvetica', fontSize: '22px', fontWeight: 'bold' }}>
+              <label style={{ fontFamily: 'Roboto', fontSize: '22px', fontWeight: 'bold'}}>
                 Question 1
                 <div>
                   <div style={{ margin: '10px' }}/>
@@ -125,10 +129,32 @@ export class QuizAnswers extends Component {
             </form>
           </div>
           <div style={styles.questionTypeContainer}>
-            <p style={{ display: 'inline', fontFamily: 'Helvetica', fontSize: '22px', fontWeight: 'bold' }}>Question Type</p>
+            <p style={{ display: 'inline', fontSize: '22px', fontWeight: 'bold' }}>Question Type</p>
             <div style={{ margin: '10px' }}/>
             <div>
               {this.renderQuestionTypeButtons()}
+            </div>
+          </div>
+          <div style={{ flex: 0.5, marginLeft: '10px' }}>
+            <p style={{ display: 'inline', fontSize: '22px', fontWeight: 'bold' }}>Answers</p>
+            <p style={{ display: 'inline', color: 'gray', fontSize: '16px'}}> - Select all that are correct</p>
+            <div style={{ margin: '10px' }}/>
+          </div>
+          <div style={styles.answersColumnContainer}>
+            <div style={styles.answerRowContainer}>
+              <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle}/>
+              <input style={styles.answerInputStyle} type="text" value="Option A" readonly/>
+              <div style={styles.spaceHorizontal1}/>
+              <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle}/>
+              <input style={styles.answerInputStyle} type="text" value="Option B" readonly/>
+            </div>
+            <div style={{ flex: 0.5 }}/>
+            <div style={styles.answerRowContainer}>
+              <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle}/>
+              <div style={styles.answerInputStyle}>Option C</div>
+              <div style={styles.spaceHorizontal1}/>
+              <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle}/>
+              <input style={styles.answerInputStyle} type="text" value="Option D" readonly/>
             </div>
           </div>
           <div style={{ display: 'flex', flex: 1, flexDirection: 'row', maxHeight: '45px' }}>
@@ -137,7 +163,7 @@ export class QuizAnswers extends Component {
             <div style={{ flex: 1 }}/>
             <button style={styles.saveAndPublishButtonContainer} type="button">Save and Publish</button>
           </div>
-          <div style={styles.spaceHorizontal}/>
+          <div style={styles.spaceHorizontal2}/>
         </div>
       </div>
     );
@@ -163,9 +189,12 @@ const styles = {
   },
   subjectContainer: {
     flex: 1,
-    backgroundColor: '#9fa8da'
+    backgroundColor: '#9AA9FF'
   },
-  spaceHorizontal: {
+  spaceHorizontal1: {
+    flex: 0.1
+  },
+  spaceHorizontal2: {
     flex: 0.2
   },
   questionInputFormContainer: {
@@ -177,18 +206,25 @@ const styles = {
   questionInputStyle: {
     marginTop: '5px',
     width: '500px',
-    fontSize: '15px'
+    fontSize: '15px',
+    flex: '1',
   },
-  passingGradeInputStyle: {
-    marginTop: '5px',
-    width: '500px',
-    fontSize: '15px'
+  answerInputStyle: {
+    width: '100px',
+    fontSize: '15px',
+    flex: 0.5,
+    textAlign: 'center'
+  },
+  answerCheckboxStyle: {
+    flex: 1,
+    alignItems: 'stretch',
+    maxWidth: '50px'
   },
   questionTypeContainer: {
     flex: 1,
     marginLeft: '10px'
   },
-  statusEnable: {
+  questionTypeEnable: {
     backgroundColor: 'white',
     color: '#Ba68c8',
     padding: '7px 50px',
@@ -197,7 +233,7 @@ const styles = {
     borderRadius: '5px',
     borderColor: '#c9c9c9'
   },
-  statusDisable: {
+  questionTypeDisable: {
     backgroundColor: '#f4f4f4',
     color: 'black',
     padding: '7px 50px',
@@ -205,6 +241,18 @@ const styles = {
     fontSize: '14px',
     borderRadius: '5px',
     borderColor: '#c9c9c9'
+  },
+  answersColumnContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    display: 'flex',
+    alignItems: 'center'
+  },
+  answerRowContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    display: 'flex',
+    width: '60%',
   },
   deleteQuestionButtonContainer: {
     flex: 1,
