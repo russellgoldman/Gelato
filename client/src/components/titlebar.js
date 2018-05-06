@@ -46,12 +46,12 @@ const styles = {
   nameContainer: {
     display: 'flex',
     flex: 3,
-    backgroundColor: '#ef5350',
+    backgroundColor: '#4db6ac',
     textAlign: 'center',
     alignItems: 'center',
     borderRadius: '5px',
     marginLeft: '3px',
-    boxShadow: '0px 3px 1px #bf4240',
+    boxShadow: '0px 3px 1px #00897b',
     marginTop: '5px',
     marginBottom: '7px'
   },
