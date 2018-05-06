@@ -14,7 +14,8 @@ export class QuizAnswers extends Component {
       statusLocked: this.props.statusLocked,
       questionName: 'Write your question here',
       answers: ['Option A', 'Option B', 'Option C', 'Option D'],
-      correctAnswerIndex: 0,   // preset correct answer is 'Option A'
+      renderCheckbox: [checkboxSelect, checkboxNeutral, checkboxNeutral, checkboxNeutral],
+      correctAnswerIndex: [0],   // indices of correct answers
       questionTypeChoice: QuestionTypeOptions[0]   // preset is Multiple Choice
     };
   }
@@ -53,15 +54,15 @@ export class QuizAnswers extends Component {
       // Multiple Choice is selected
       return (
         <div>
-          <div style={{ display: 'inline', marginRight: '5px' }}>
+          <div style={{ display: 'inline', marginRight: '1px' }}>
             <button style={styles.questionTypeEnable} type="button"
               onClick={this.multipleChoiceButtonClick.bind(this)}>Multiple Choice</button>
           </div>
-          <div style={{ display: 'inline', marginLeft: '5px', marginRight: '5px' }}>
+          <div style={{ display: 'inline', marginLeft: '1px', marginRight: '1px' }}>
             <button style={styles.questionTypeDisable} type="button"
               onClick={this.writtenButtonClick.bind(this)}>Written</button>
           </div>
-          <div style={{ display: 'inline', marginLeft: '5px' }}>
+          <div style={{ display: 'inline', marginLeft: '1px' }}>
             <button style={styles.questionTypeDisable} type="button"
               onClick={this.trueOrFalseButtonClick.bind(this)}>True or False</button>
           </div>
@@ -71,15 +72,15 @@ export class QuizAnswers extends Component {
     else if (this.state.questionTypeChoice === 'Written') {
       return (
         <div>
-          <div style={{ display: 'inline', marginRight: '5px' }}>
+          <div style={{ display: 'inline', marginRight: '1px' }}>
             <button style={styles.questionTypeDisable} type="button"
               onClick={this.multipleChoiceButtonClick.bind(this)}>Multiple Choice</button>
           </div>
-          <div style={{ display: 'inline', marginLeft: '5px', marginRight: '5px' }}>
+          <div style={{ display: 'inline', marginLeft: '1px', marginRight: '1px' }}>
             <button style={styles.questionTypeEnable} type="button"
               onClick={this.writtenButtonClick.bind(this)}>Written</button>
           </div>
-          <div style={{ display: 'inline', marginLeft: '5px' }}>
+          <div style={{ display: 'inline', marginLeft: '1px' }}>
             <button style={styles.questionTypeDisable} type="button"
               onClick={this.trueOrFalseButtonClick.bind(this)}>True or False</button>
           </div>
@@ -88,20 +89,30 @@ export class QuizAnswers extends Component {
     }
     return (
       <div>
-        <div style={{ display: 'inline', marginRight: '5px' }}>
+        <div style={{ display: 'inline', marginRight: '1px' }}>
           <button style={styles.questionTypeDisable} type="button"
             onClick={this.multipleChoiceButtonClick.bind(this)}>Multiple Choice</button>
         </div>
-        <div style={{ display: 'inline', marginLeft: '5px', marginRight: '5px' }}>
+        <div style={{ display: 'inline', marginLeft: '1px', marginRight: '1px' }}>
           <button style={styles.questionTypeDisable} type="button"
             onClick={this.writtenButtonClick.bind(this)}>Written</button>
         </div>
-        <div style={{ display: 'inline', marginLeft: '5px' }}>
+        <div style={{ display: 'inline', marginLeft: '1px' }}>
           <button style={styles.questionTypeEnable} type="button"
             onClick={this.trueOrFalseButtonClick.bind(this)}>True or False</button>
         </div>
       </div>
     );
+  }
+
+  toggleCheckbox(id) {
+  //   if (renderCheckbox[id] === checkboxSelect) {
+  //     // currently selected, let's unselect it
+  //     this.setState({renderCheckbox[id]: checkboxNeutral});
+  //     return;
+  //   }
+  //   // otherwise it is unselected, and so we select it
+  //   this.setState({renderCheckbox[id]: checkboxSelect});
   }
 
   render() {
@@ -142,19 +153,19 @@ export class QuizAnswers extends Component {
           </div>
           <div style={styles.answersColumnContainer}>
             <div style={styles.answerRowContainer}>
-              <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle}/>
-              <input style={styles.answerInputStyle} type="text" value="Option A" readOnly/>
+              <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle} onClick={this.toggleCheckbox(0)}/>
+              <input style={styles.answerInputStyle} type="text" value="Option A"/>
               <div style={styles.spaceHorizontal1}/>
-              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle}/>
-              <input style={styles.answerInputStyle} type="text" value="Option B" readOnly/>
+              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle} onClick={this.toggleCheckbox(1)}/>
+              <input style={styles.answerInputStyle} type="text" value="Option B"/>
             </div>
             <div style={{ flex: 1 }}/>
             <div style={styles.answerRowContainer}>
-              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle}/>
-              <input style={styles.answerInputStyle} type="text" value="Option C" readOnly/>
+              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle} onClick={this.toggleCheckbox(2)}/>
+              <input style={styles.answerInputStyle} type="text" value="Option C"/>
               <div style={styles.spaceHorizontal1}/>
-              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle}/>
-              <input style={styles.answerInputStyle} type="text" value="Option D" readOnly/>
+              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle} onClick={this.toggleCheckbox(3)}/>
+              <input style={styles.answerInputStyle} type="text" value="Option D"/>
             </div>
             <div style={{ flex: 2 }}/>
           </div>
@@ -169,7 +180,7 @@ export class QuizAnswers extends Component {
       </div>
     );
   }
-}
+};
 
 const styles = {
   outerContainer: {
@@ -214,34 +225,38 @@ const styles = {
     width: '100px',
     fontSize: '15px',
     flex: 0.5,
-    textAlign: 'center'
+    textAlign: 'center',
+    height: '50px'
   },
   answerCheckboxStyle: {
     flex: 1,
     alignItems: 'stretch',
-    maxWidth: '50px'
+    maxWidth: '45px',
+    maxHeight: '50px'
   },
   questionTypeContainer: {
-    flex: 0.7,
+    flex: 0.5,
     marginLeft: '10px'
   },
   questionTypeEnable: {
     backgroundColor: 'white',
     color: '#Ba68c8',
-    padding: '7px 50px',
+    padding: '4px 25px',
     textAlign: 'center',
     fontSize: '14px',
     borderRadius: '5px',
-    borderColor: '#c9c9c9'
+    borderColor: '#c9c9c9',
+    width: '120px'
   },
   questionTypeDisable: {
     backgroundColor: '#f4f4f4',
     color: 'black',
-    padding: '7px 50px',
+    padding: '4px 25px',
     textAlign: 'center',
     fontSize: '14px',
     borderRadius: '5px',
-    borderColor: '#c9c9c9'
+    borderColor: '#c9c9c9',
+    width: '120px'
   },
   answersColumnContainer: {
     flex: 1,
@@ -250,10 +265,11 @@ const styles = {
     alignItems: 'center'
   },
   answerRowContainer: {
-    flex: 1,
+    flex: 0.7,
     flexDirection: 'row',
     display: 'flex',
-    width: '60%'
+    width: '60%',
+    marginBottom: '50px'
   },
   deleteQuestionButtonContainer: {
     flex: 1,
@@ -265,7 +281,7 @@ const styles = {
     borderRadius: '5px',
     borderColor: '#c9c9c9',
     marginLeft: '10px',
-    marginBottom: '2px'
+    marginBottom: '2px',
   },
   addQuestionButtonContainer: {
     flex: 1,
@@ -277,7 +293,7 @@ const styles = {
     borderRadius: '5px',
     borderColor: '#c9c9c9',
     marginLeft: '10px',
-    marginBottom: '2px'
+    marginBottom: '2px',
   },
   saveAndPublishButtonContainer: {
     flex: 1,
@@ -289,6 +305,6 @@ const styles = {
     borderRadius: '5px',
     borderColor: '#c9c9c9',
     marginLeft: '10px',
-    marginBottom: '2px'
+    marginBottom: '2px',
   }
 };
