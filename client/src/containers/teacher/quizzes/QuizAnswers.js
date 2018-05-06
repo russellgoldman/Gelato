@@ -143,18 +143,18 @@ export class QuizAnswers extends Component {
           <div style={styles.answersColumnContainer}>
             <div style={styles.answerRowContainer}>
               <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle}/>
-              <input style={styles.answerInputStyle} type="text" value="Option A" readonly/>
+              <input style={styles.answerInputStyle} type="text" value="Option A" readOnly/>
               <div style={styles.spaceHorizontal1}/>
               <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle}/>
-              <input style={styles.answerInputStyle} type="text" value="Option B" readonly/>
+              <input style={styles.answerInputStyle} type="text" value="Option B" readOnly/>
             </div>
             <div style={{ flex: 1 }}/>
             <div style={styles.answerRowContainer}>
               <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle}/>
-              <input style={styles.answerInputStyle} type="text" value="Option C" readonly/>
+              <input style={styles.answerInputStyle} type="text" value="Option C" readOnly/>
               <div style={styles.spaceHorizontal1}/>
               <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle}/>
-              <input style={styles.answerInputStyle} type="text" value="Option D" readonly/>
+              <input style={styles.answerInputStyle} type="text" value="Option D" readOnly/>
             </div>
             <div style={{ flex: 2 }}/>
           </div>
@@ -169,7 +169,7 @@ export class QuizAnswers extends Component {
       </div>
     );
   }
-};
+}
 
 const styles = {
   outerContainer: {

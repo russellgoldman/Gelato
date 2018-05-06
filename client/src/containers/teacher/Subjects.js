@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { InputCard, Card } from '../../components/card';
 
 import './subjects.css';
-import {QuizCreate} from './quizzes/QuizCreate.js';
 import {QuizAnswers} from './quizzes/QuizAnswers.js';
 
 export class Subjects extends React.Component {
@@ -15,17 +14,9 @@ export class Subjects extends React.Component {
       newSubjectButton: 'views/new-quiz-button',
     };
 
-    const subjects = [
-      { name: 'Division', quizzes: ['quiz1', 'quiz2']  },
-      { name: 'Multiplication', quizzes: ['quiz1'] },
-      { name: 'Addition', quizzes: [] },
-    ];
-
+    const subjects = this.props.data.subjects; 
     this.views = views;
     this.state = {
-      // global state, will connect later
-      subjects,
-
       // local state
       currentSubject: subjects[0],
       newSubjectView: views.newSubjectButton,
@@ -43,28 +34,17 @@ export class Subjects extends React.Component {
   }
 
   addSubject(name) {
-    const { subjects } = this.state;
-
-    const subjectExists = subjects.find(subject => subject.name === name);
-    if (subjectExists) return;
-    const newSubject = { name, quizzes: [] };
-    this.setState({
-      subjects: [newSubject, ...subjects]
-    });
+    this.props.fns.addSubject(name);
   }
 
   removeSubject(name) {
-    const { subjects, currentSubject } = this.state;
-    const cleanSubjects = subjects.filter(subject => subject.name !== name);
+    const { currentSubject } = this.state;
     if (currentSubject.name === name) {
       this.setState({
-        subjects: cleanSubjects,
         currentSubject: null,
-      });
+      }, () => this.props.fns.removeSubject(name));
     } else {
-      this.setState({
-        subjects: cleanSubjects
-      });
+      this.props.fns.removeSubject(name);
     }
   }
 
@@ -137,7 +117,7 @@ export class Subjects extends React.Component {
   }
 
   render() {
-    const { subjects, currentSubject } = this.state;
+    const { subjects } = this.props.data;
     return (
       <div className="flex">
         <div className="fl w-30 ">
@@ -195,6 +175,15 @@ function Subject({ name, quizzes, onClick, onDelete }) {
     </Card>
   );
 }
+
+Subjects.propTypes = {
+  data: PropTypes.shape({
+    name: PropTypes.string,
+    active: PropTypes.bool,
+    subjects: PropTypes.array,
+  }),
+  fns: PropTypes.any,
+};
 
 Subject.propTypes = {
   name: PropTypes.string,

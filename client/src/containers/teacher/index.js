@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 import { Analytics } from './Analytics';
@@ -42,7 +43,7 @@ export class TeacherView extends React.Component {
     return (
       <div className="bg-light-gray">
         <div className="flex br2 min-h4">
-          <Sidebar />
+          <Sidebar classes={this.props.classes} />
           <Tabs className="w-100 bg-white br4 ma3">
             <TabList className="flex list mt0 mb0">
               <Tab
@@ -61,7 +62,7 @@ export class TeacherView extends React.Component {
               <Analytics />
             </TabPanel>
             <TabPanel className="">
-              <Subjects />
+              <Subjects fns={this.props.fns} data={this.props.currentClass} />
             </TabPanel>
           </Tabs>
         </div>
@@ -69,3 +70,9 @@ export class TeacherView extends React.Component {
     );
   }
 }
+
+TeacherView.propTypes = {
+  currentClass: PropTypes.any,
+  classes: PropTypes.array,
+  fns: PropTypes.any,
+};
