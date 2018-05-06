@@ -22,7 +22,7 @@ const styles = {
     maxWidth: '100%',
     display: 'flex',
     justifyContent: 'flex-end',
-    backgroundColor: '#3f51b5',
+    backgroundColor: 'white',
     padding: '1px 0px',
     maxHeight: '60px',
     position: 'sticky',
