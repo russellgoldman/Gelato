@@ -1,10 +1,11 @@
 .student-class-container {
   flex-grow: 2;
-  margin-top: 5px;
+  margin-top: 20px;
   background-color: white;
   height: 80vh;
   margin: 20px;
   border-radius: 10px;
+  transform: translateY(25px);
 }
 
 .student-class-container .map-title{
@@ -50,4 +51,124 @@ ul {
     opacity: 1;
     border-radius: 10px;
     text-align: center;
+}
+
+.division-course-item{
+  font-size:1.2rem;
+  line-height: 2rem;
+  width: 400px;
+  height: 100px;
+  margin: 10px;
+  margin-left: 30px;
+  padding: 10px;
+  background-color: #Ba68c8;
+  opacity: 0.6;
+  border-radius: 10px;
+  text-align: center;
+  color: black;  
+}
+
+.division-course-item:hover{
+  font-size:1.2rem;
+  line-height: 2rem;
+  width: 400px;
+  height: 100px;
+  margin: 10px;
+  margin-left: 30px;
+  padding: 10px;
+  background-color: #8e24aa;
+  opacity: 1;
+  border-radius: 10px;
+  text-align: center; 
+  color: white; 
+}
+
+.multiplication-course-item{
+  font-size:1.2rem;
+  line-height: 2rem;
+  width: 400px;
+  height: 100px;
+  margin: 10px;
+  margin-left: 30px;
+  padding: 10px;
+  background-color: #B2dfdb;
+  opacity: 0.6;
+  border-radius: 10px;
+  text-align: center;  
+  color: black;
+}
+
+.multiplication-course-item:hover{
+  font-size:1.2rem;
+  line-height: 2rem;
+  width: 400px;
+  height: 100px;
+  margin: 10px;
+  margin-left: 30px;
+  padding: 10px;
+  background-color: #00897b;
+  opacity: 1;
+  border-radius: 10px;
+  text-align: center; 
+  color: white; 
+}
+
+.fractions-course-item{
+  font-size:1.2rem;
+  line-height: 2rem;
+  width: 400px;
+  height: 100px;
+  margin: 10px;
+  margin-left: 30px;
+  padding: 10px;
+  background-color: lightgray;
+  opacity: 0.6;
+  border-radius: 10px;
+  text-align: center;  
+  color: black;
+}
+
+.fractions-course-item:hover{
+  font-size:1.2rem;
+  line-height: 2rem;
+  width: 400px;
+  height: 100px;
+  margin: 10px;
+  margin-left: 30px;
+  padding: 10px;
+  background-color: gray;
+  opacity: 1;
+  border-radius: 10px;
+  text-align: center;  
+  color: white;
+}
+
+.decimals-course-item{
+  font-size:1.2rem;
+  line-height: 2rem;
+  width: 400px;
+  height: 100px;
+  margin: 10px;
+  margin-left: 30px;
+  padding: 10px;
+  background-color: #9fa8da;
+  opacity: 0.6;
+  border-radius: 10px;
+  text-align: center;  
+  color: black;
+}
+
+.decimals-course-item:hover{
+  font-size:1.2rem;
+  line-height: 2rem;
+  width: 400px;
+  height: 100px;
+  margin: 10px;
+  margin-left: 30px;
+  padding: 10px;
+  background-color: #343452;
+  opacity: 1;
+  border-radius: 10px;
+  text-align: center;  
+  color: white;
 }

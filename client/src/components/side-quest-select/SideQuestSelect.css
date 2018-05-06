@@ -1,24 +1,29 @@
-  .side-quest-container{  
-  }
-  
-  .side-quest-list-container{
-    position: relative;
+.side-quest-container{
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+ 
+ .side-quest-list-container{
+    position: absolute;
+    top: 0%;
     display: flex;
     background-color: white;
-    transform: translate(90px, -135px);
+    transform: translate(110px, -162px);
     border-radius: 10px;
-    z-index: 1;
+    z-index: 4;
   }
 
   .side-quest-container h3{
     position: relative;
-    background-color: white;
-    transform: translate(90px, -100px);
+    background-color: #00897b;
+    transform: translate(110px, -220px);
     border-radius: 10px;
     z-index: 2;
-    text-align: left;
+    text-align: center;
     padding: 10px;
-    color: #e1bee7;
+    color: white;
+    width: 570px;
   }
   
   ul {
@@ -29,25 +34,27 @@
   }
   
   .side-quest-item{
-    font-size:1.2rem;
+    font-size:1.7rem;
     line-height: 2rem;
     width: 150px;
     height: 60px;
     margin: 20px;
-    background-color: blue;
+    background-color: #B2dfdb;
     opacity: 0.6;
     border: none;
     border-radius: 10px;
+    color: black;
   }
 
   .side-quest-item:hover{
-    font-size:1.2rem;
+    font-size:1.7rem;
     line-height: 2rem;
     width: 150px;
     height: 60px;
     margin: 20px;
-    background-color: blue;
+    background-color: #00897b;
     opacity: 1;
     border: none;
     border-radius: 10px;
+    color: white;
   }

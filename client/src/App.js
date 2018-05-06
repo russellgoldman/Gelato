@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { TeacherView } from './containers/teacher';
 import { StudentView } from './containers/student';
-// import { LandingView } from './containers/landing';
+import { LandingView } from './containers/landing';
+
 import { Titlebar } from './components/titlebar.js';
 import teacher from './images/teacher.png';
 import { ENGINE_METHOD_DIGESTS } from 'constants';
@@ -123,10 +124,7 @@ class App extends Component {
   renderLanding() {
     if (this.state.currentView !== views.LANDING) return;
     return (
-      <div>
-        <button onClick={() => this.updateView(views.APP.STUDENT)}>STUDENT</button>
-        <button onClick={() => this.updateView(views.APP.TEACHER)}>TEACHER</button>
-      </div>
+       <LandingPage />
     )
   }
   render() {
@@ -137,7 +135,6 @@ class App extends Component {
       <div className="vh-100">
         {this.renderLanding()}
         {this.renderApp()}
-
       </div>
     );
   }

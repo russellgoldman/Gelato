@@ -1,10 +1,14 @@
 import React from 'react';
+import { Route, Redirect } from 'react-router';
 import StudentClassSelect from '../../components/student-class-select/StudentClassSelect';
 import StudentSideNav from '../../components/student-side-nav/StudentSideNav';
 import QuestSelect from '../../components/quest-select/QuestSelect';
 import SideQuestSelect from '../../components/side-quest-select/SideQuestSelect';
 import BattleField from '../../components/battle-field/BattleField';
 import MCQuestion from '../../components/mc-question/MCQuestion';
+import monsterSprite from './dragon.png';
+import greenMonster from './green-monster.png';
+import mushroomMonster from './mushroom.png';
 
 export class StudentView extends React.Component {
 
@@ -14,10 +18,11 @@ export class StudentView extends React.Component {
       prevAnswer: null,
       attack: false,
       correctAnswer: false,
+      quizComplete: false,
       questions: [
         {
           id: 0,
-          question: "What is 2x2",
+          question: "What do you get when you multiply 2 by 2?",
           answers: [
             1,
             4,
@@ -25,10 +30,11 @@ export class StudentView extends React.Component {
             5
           ],
           correctAnswer: 4,
+          monster: monsterSprite
         },
         {
           id: 1,
-          question: "What is 2x4",
+          question: "What do you get when you multiply 2 by 4?",
           answers: [
             1,
             2,
@@ -36,6 +42,19 @@ export class StudentView extends React.Component {
             5
           ],
           correctAnswer: 8,
+          monster: monsterSprite
+        },
+        {
+          id: 2,
+          question: "What do you get when you multiply 5 by 5?",
+          answers: [
+            25,
+            50,
+            10,
+            30
+          ],
+          correctAnswer: 25,
+          monster: monsterSprite
         }
       ],
       currentQuestionId: 0,
@@ -61,7 +80,11 @@ export class StudentView extends React.Component {
     // set new question vars based on next question
     //stop animation and re render question UI
     console.log("stopped!");
-    let new_question_num = this.state.currentQuestionId + 1 < this.state.questions.length ? this.state.currentQuestionId + 1 : 0;
+    let new_question_num = this.state.currentQuestionId + 1;
+    if (new_question_num >= this.state.questions.length) {
+      // redirect to landing page if quiz is complete
+      return <Redirect to=".././landing/index.js"/>;
+    };
     this.setState({
       prevAnswer: null,
       attack: false,
@@ -75,11 +98,12 @@ export class StudentView extends React.Component {
         <div className='screen-container'> 
           <StudentSideNav />
           <div className='battle-screen-container'>
-            <BattleField onAnimationComplete={this.stopAttack} attack={this.state.attack} hit={this.state.correctAnswer} />
+            <BattleField {...this.state.questions[this.state.currentQuestionId]} onAnimationComplete={this.stopAttack} attack={this.state.attack} hit={this.state.correctAnswer} />
             <MCQuestion {...this.state.questions[this.state.currentQuestionId]} onAnswerSelected={this.handleAnswer}/>
           </div>
         </div>
-      {/*<div className='main-screen'>
+      {/* <h2 className='greeting-msg'>Hi Alice, Welcome to</h2> <h2 className='course-msg'>Grade 5 Math!</h2>
+      <div className='main-screen'>
         <StudentSideNav />
         <StudentClassSelect />
         <QuestSelect />
@@ -87,7 +111,7 @@ export class StudentView extends React.Component {
           <SideQuestSelect />
         </div>
       </div>
-      <div><button className='play-btn'>PLAY</button></div>*/}
+      <div><button className='play-btn'>PLAY</button></div> */}
     </div>);
   }
 }

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -30,7 +36,8 @@
 }
 
 .battle-screen-container{
-  background-image: url("battle-scene.jpg");
+  background-image: url("battle-scene.png");
+  background-size: cover;
   flex-grow: 4;
 }
 
@@ -54,27 +61,45 @@
   bottom: 10%;
 }
 
+.greeting-msg{
+  position: absolute;
+  top:10%;
+  left: 23%;
+  width: 50%;
+}
+
+.course-msg{
+  position: absolute;
+  top:10%;
+  left: 39%;
+  width: 50%; 
+  color: #3f51b5;
+}
+
 .play-btn{
   position: absolute;
-  bottom: 12%;
-  right: 15%;
+  bottom: 3%;
+  right: 10%;
   width: 250px;
   height: 80px;
   background: #BA55D3;
   color: white;
   border-radius: 10px;
   border-style: none;
+  font-size: 2rem;
 }
 
 .play-btn:hover{
   position: absolute;
-  bottom: 12%;
-  right: 15%;
+  bottom: 3%;
+  right: 10%;
   width: 250px;
   height: 80px;
   background: green;
   color: white;
   border-radius: 10px;
+  border-style: none;
+  font-size: 2rem;
 }
 
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import userSprite from './user-sprite.gif';
-import monsterSprite from './monster-sprite.png';
+import userSprite from './user-sprite2.svg';
+import monsterSprite from './dragon.png';
+import greenMonster from './green-monster.png';
 import './BattleField.css';
 
 let color = 'red';
@@ -9,6 +10,7 @@ class BattleField extends Component {
     super(props);
     this.state = {
       animate: false,
+      monster: this.props.monster
     };
   }
 
@@ -47,18 +49,22 @@ class BattleField extends Component {
     return (
         <div>
           <div className='battle-top-container'>
-            <div className='monster-sprite'>
-              <h3>Scary Monster</h3>
-              <img src={monsterSprite} alt='monster sprite'></img>
-            </div>
-            <div className={`user-sprite ${this.state.animate ? 'move-user' : ''}`}>
+          <div className={`user-sprite ${this.state.animate ? 'move-user' : ''}`}>
               <h3 className='player-name'>Player 1</h3>
               <img src={userSprite} alt='user sprite'></img>
             </div>
+
+            <div className={`monster-sprite ${this.state.animate ? 'move-monster' : ''}`}>
+              <div className='hit-box'>
+                <h1>-1</h1>
+              </div>
+              <h3 className='monster-name'>Scary Monster</h3>
+              <img src={this.props.monster} alt='monster sprite'></img>
+            </div>
           </div>
-          <div className='question-ui'>
-            {this.props.attack && "attacked!"}
-            {/* {this.props.hit && this.renderHit()} */}
+          <div className='hit-ui'>
+            {this.props.attack &&  "attacked!"}
+            {this.props.hit && "damage dealt!"}
           </div>
         </div>
     );

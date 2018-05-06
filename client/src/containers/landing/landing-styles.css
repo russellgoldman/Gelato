@@ -1,0 +1,102 @@
+.landing-container{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.teacher-container{
+    /* inline flex with content moves div ? */
+    display: inline-flex;
+    background-color: #61CCD9;
+    height: 91vh;
+    width: 50vw;
+    position: absolute;
+    top: 11.2%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-tag{
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    position: absolute;
+    left: 42%;
+    top: 50%;
+    z-index: 4;
+    border-radius: 10px;
+    border-color: white;
+}
+
+.welcome-tag:hover{
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    position: absolute;
+    left: 42%;
+    top: 50%;
+    z-index: 4;
+    border-radius: 10px;
+    border-color: white;   
+}
+
+.student-container{ 
+    display: inline-flex;
+    background-color: #627786; 
+    height: 91vh;
+    width: 50vw;
+    position: absolute;
+    right: 0%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.teacher-content{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.student-content{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teacher-container img {
+    width: 200px;
+    height: 200px;
+}
+
+.student-container img {
+    width: 200px;
+    height: 200px;   
+}
+
+.teacher-btn{
+    background: green;
+    border: none;
+}
+
+.teacher-btn:hover{
+    background: blue;
+    border: none;
+}
+
+.student-btn{
+    background: green;   
+    border: none;
+}
+
+.student-btn:hover{
+    background: blue;   
+    border: none;    
+}
