@@ -23,7 +23,7 @@ class MCQuestion extends Component {
               <h1>{this.props.question}</h1>
             </div>
             {this.props.answers.map((answer, id) => 
-            <button key={id} onClick={() => this.monsterDamaged(answer)}>{answer}</button>)}
+            <button className='battle-option' key={id} onClick={() => this.monsterDamaged(answer)}>{answer}</button>)}
         </div>
     );
   }

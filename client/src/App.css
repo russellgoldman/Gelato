@@ -33,6 +33,7 @@
 
 .screen-container{
   display: flex;
+  width: 100vw;
 }
 
 .battle-screen-container{
@@ -78,8 +79,8 @@
 
 .play-btn{
   position: absolute;
-  bottom: 3%;
-  right: 10%;
+  bottom: 3px;
+  left: 1000px;
   width: 250px;
   height: 80px;
   background: #BA55D3;
@@ -91,8 +92,8 @@
 
 .play-btn:hover{
   position: absolute;
-  bottom: 3%;
-  right: 10%;
+  bottom: 3px;
+  left: 1000px;
   width: 250px;
   height: 80px;
   background: green;

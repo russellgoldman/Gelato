@@ -9,6 +9,7 @@ import MCQuestion from '../../components/mc-question/MCQuestion';
 import monsterSprite from './dragon.png';
 import greenMonster from './green-monster.png';
 import mushroomMonster from './mushroom.png';
+import '../../App.css';
 
 export class StudentView extends React.Component {
 
@@ -19,6 +20,7 @@ export class StudentView extends React.Component {
       attack: false,
       correctAnswer: false,
       quizComplete: false,
+      showBattle: false,
       questions: [
         {
           id: 0,
@@ -60,6 +62,11 @@ export class StudentView extends React.Component {
       currentQuestionId: 0,
     }
   }
+
+  toggleBattle = () => this.setState(prevState => ({
+    ...prevState,
+    showBattle: !prevState.showBattle
+  }))
   
   handleAnswer = (answer) => {
     const { questions, currentQuestionId, prevAnswer } = this.state;
@@ -93,25 +100,34 @@ export class StudentView extends React.Component {
     });
   }
 
-  render () {
+  renderBattle = () => {
     return (<div>
-        <div className='screen-container'> 
-          <StudentSideNav />
-          <div className='battle-screen-container'>
-            <BattleField {...this.state.questions[this.state.currentQuestionId]} onAnimationComplete={this.stopAttack} attack={this.state.attack} hit={this.state.correctAnswer} />
-            <MCQuestion {...this.state.questions[this.state.currentQuestionId]} onAnswerSelected={this.handleAnswer}/>
-          </div>
-        </div>
-      {/* <h2 className='greeting-msg'>Hi Alice, Welcome to</h2> <h2 className='course-msg'>Grade 5 Math!</h2>
-      <div className='main-screen'>
+      <div className='screen-container'> 
         <StudentSideNav />
-        <StudentClassSelect />
-        <QuestSelect />
-        <div className='sub-screen'>
-          <SideQuestSelect />
+        <div className='battle-screen-container'>
+          <BattleField {...this.state.questions[this.state.currentQuestionId]} onAnimationComplete={this.stopAttack} attack={this.state.attack} hit={this.state.correctAnswer} />
+          <MCQuestion {...this.state.questions[this.state.currentQuestionId]} onAnswerSelected={this.handleAnswer}/>
         </div>
       </div>
-      <div><button className='play-btn'>PLAY</button></div> */}
+  </div>);
+  }
+
+  render () {
+    return (<div>
+      <div className='main-screen'>
+        {this.state.showBattle ? this.renderBattle() :
+          (<React.Fragment> 
+            <h2 className='greeting-msg'>Hi Alice, Welcome to</h2> <h2 className='course-msg'>Grade 5 Math!</h2>
+            <StudentSideNav />
+            <StudentClassSelect />
+            <QuestSelect />
+            <div className='sub-screen'>
+              <SideQuestSelect />
+            </div>
+            <div><button className='play-btn' onClick={this.toggleBattle}>PLAY</button></div>
+          </React.Fragment>)}
+      </div>
+     
     </div>);
   }
 }

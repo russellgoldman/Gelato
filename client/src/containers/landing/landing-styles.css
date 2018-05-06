@@ -8,10 +8,10 @@
     /* inline flex with content moves div ? */
     display: inline-flex;
     background-color: #61CCD9;
-    height: 91vh;
+    height: 100vh;
     width: 50vw;
     position: absolute;
-    top: 11.2%;
+    top: 0%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -46,7 +46,7 @@
 .student-container{ 
     display: inline-flex;
     background-color: #627786; 
-    height: 91vh;
+    height: 100vh;
     width: 50vw;
     position: absolute;
     right: 0%;
@@ -82,21 +82,37 @@
 }
 
 .teacher-btn{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
     background: green;
     border: none;
+    margin-top: 10px;
 }
 
 .teacher-btn:hover{
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
     background: blue;
     border: none;
+    margin-top: 10px;
 }
 
 .student-btn{
-    background: green;   
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background: green;
     border: none;
+    margin-top: 10px;
 }
 
 .student-btn:hover{
-    background: blue;   
-    border: none;    
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    background: blue;
+    border: none;
+    margin-top: 10px;  
 }
