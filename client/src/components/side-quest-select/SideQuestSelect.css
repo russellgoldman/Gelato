@@ -16,13 +16,13 @@
 
   .side-quest-container h3{
     position: relative;
-    background-color: white;
+    background-color: #00897b;
     transform: translate(110px, -220px);
     border-radius: 10px;
     z-index: 2;
-    text-align: left;
+    text-align: center;
     padding: 10px;
-    color: #e1bee7;
+    color: white;
     width: 570px;
   }
   
@@ -34,24 +34,24 @@
   }
   
   .side-quest-item{
-    font-size:1.2rem;
+    font-size:1.7rem;
     line-height: 2rem;
     width: 150px;
     height: 60px;
     margin: 20px;
-    background-color: blue;
+    background-color: #B2dfdb;
     opacity: 0.6;
     border: none;
     border-radius: 10px;
   }
 
   .side-quest-item:hover{
-    font-size:1.2rem;
+    font-size:1.7rem;
     line-height: 2rem;
     width: 150px;
     height: 60px;
     margin: 20px;
-    background-color: blue;
+    background-color: #00897b;
     opacity: 1;
     border: none;
     border-radius: 10px;

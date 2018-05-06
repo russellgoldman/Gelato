@@ -26,11 +26,11 @@
   }
   
   .class-item{
-    font-size:1.2rem;
+    font-size:2rem;
     line-height: 2rem;
     width: 120px;
     height: 180px;
-    background-color: blue;
+    background-color: #Ba68c8;
     opacity: 0.6;
     margin: 10px;
     border-radius: 10px;
@@ -38,11 +38,11 @@
   }
 
   .class-item:hover{
-    font-size:1.2rem;
+    font-size:2rem;
     line-height: 2rem;
     width: 120px;
     height: 180px;
-    background-color: blue;
+    background-color: #8e24aa;
     opacity: 1;
     margin: 10px;
     border-radius: 10px;
