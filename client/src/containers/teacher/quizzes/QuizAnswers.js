@@ -145,17 +145,18 @@ export class QuizAnswers extends Component {
               <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle}/>
               <input style={styles.answerInputStyle} type="text" value="Option A" readonly/>
               <div style={styles.spaceHorizontal1}/>
-              <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle}/>
+              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle}/>
               <input style={styles.answerInputStyle} type="text" value="Option B" readonly/>
             </div>
-            <div style={{ flex: 0.5 }}/>
+            <div style={{ flex: 1 }}/>
             <div style={styles.answerRowContainer}>
-              <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle}/>
-              <div style={styles.answerInputStyle}>Option C</div>
+              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle}/>
+              <input style={styles.answerInputStyle} type="text" value="Option C" readonly/>
               <div style={styles.spaceHorizontal1}/>
-              <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle}/>
+              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle}/>
               <input style={styles.answerInputStyle} type="text" value="Option D" readonly/>
             </div>
+            <div style={{ flex: 2 }}/>
           </div>
           <div style={{ display: 'flex', flex: 1, flexDirection: 'row', maxHeight: '45px' }}>
             <button style={styles.deleteQuestionButtonContainer} type="button">Delete Question</button>
@@ -198,7 +199,7 @@ const styles = {
     flex: 0.2
   },
   questionInputFormContainer: {
-    flex: 1,
+    flex: 0.7,
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: '10px'
@@ -221,7 +222,7 @@ const styles = {
     maxWidth: '50px'
   },
   questionTypeContainer: {
-    flex: 1,
+    flex: 0.7,
     marginLeft: '10px'
   },
   questionTypeEnable: {
@@ -252,7 +253,7 @@ const styles = {
     flex: 1,
     flexDirection: 'row',
     display: 'flex',
-    width: '60%',
+    width: '60%'
   },
   deleteQuestionButtonContainer: {
     flex: 1,
