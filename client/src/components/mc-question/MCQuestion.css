@@ -26,7 +26,7 @@
     right: -5%;
 }
 
-button{
+.battle-option{
     font-size: 2rem;
     height: 65px;
     width: 250px;
@@ -41,7 +41,7 @@ button{
     border-bottom-width: 10px;
 }
 
-button:hover{
+.battle-option:hover{
     font-size: 2rem;
     height: 65px;
     width: 250px;
