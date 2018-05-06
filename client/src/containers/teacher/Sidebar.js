@@ -1,18 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './sidebar.css';
-
-const classes = [
-  {name: 'Grade 4 Math 1', active: false},
-  {name: 'Grade 4 Math 2', active: true},
-  {name: 'Grade 5 English', active: false},
-  {name: 'Grade 5 Social Studies', active: false},
-];
 
 const Triangle = () => (
   <div className="triangle">
   </div>
 );
-export const Sidebar = () => (
+export const Sidebar = ({ classes }) => (
   <div className="w-20 bg-dark-muted-blue p0">
     <div className="h4 pl3 flex items-center  bg-bright-blue">
       <h1 className="f4 fw3 ma0 bg-bright-blue white">Your Classes</h1>
@@ -29,3 +23,7 @@ export const Sidebar = () => (
     )}
   </div>
 );
+
+Sidebar.propTypes = {
+  classes: PropTypes.array,
+};
