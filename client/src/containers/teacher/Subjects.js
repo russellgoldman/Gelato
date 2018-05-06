@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { InputCard, Card } from '../../components/card';
 
 import './subjects.css';
 import { QuizCreate } from './quizzes/QuizCreate.js';
@@ -14,9 +15,9 @@ export class Subjects extends React.Component {
     };
 
     const subjects = [
-      { name: 'division', quizzes: ['quiz1', 'quiz2']  },
-      { name: 'multiplication', quizzes: ['quiz1'] },
-      { name: 'addition', quizzes: [] },
+      { name: 'Division', quizzes: ['quiz1', 'quiz2']  },
+      { name: 'Multiplication', quizzes: ['quiz1'] },
+      { name: 'Addition', quizzes: [] },
     ];
 
     this.views = views;
@@ -47,7 +48,7 @@ export class Subjects extends React.Component {
     if (subjectExists) return;
     const newSubject = { name, quizzes: [] };
     this.setState({
-      subjects: [...subjects, newSubject]
+      subjects: [newSubject, ...subjects]
     });
   }
 
@@ -64,8 +65,6 @@ export class Subjects extends React.Component {
         subjects: cleanSubjects
       });
     }
-
-
   }
 
   handleSwitchSubject(quiz) {
@@ -107,26 +106,32 @@ export class Subjects extends React.Component {
   renderSubjectForm(show) {
     if (show !== this.views.quizForm) return;
     return (
-      <div className="pa2 br2 flex flex-column center">
-        <input className="pa2" onChange={this.handleSubjectFormChange} />
-        <div className="pv2 flex justify-around w-100">
-          <button
-            onClick={() => this.handleShowNewSubjectButton()}
-            className="bn pointer f6 link br2 ph3 pv2 mb2 dib white bg-red">cancel</button>
-          <button
-            onClick={this.handleSubjectFormSubmit}
-            className="content-end bn pointer f6 link grow br2 ph3 pv2 mb2 dib white bg-green">create</button>
+      <InputCard onInputChange={this.handleSubjectFormChange}>
+        <div className="">
+          <div className="flex justify-between pv2 ph2">
+            <button
+              onClick={() => this.handleShowNewSubjectButton()}
+              className="bn br2 pointer pv2 ph3 bg-light-red">cancel</button>
+            <button
+              onClick={() => this.handleSubjectFormSubmit()}
+              className="bn br2 pointer pv2 ph3 bg-green">submit</button>
+          </div>
+
         </div>
-      </div>
+      </InputCard>
     );
   }
 
   renderNewSubjectButton(show) {
-    if (show !== this.views.newSubjectButton) return;
+    if (show !== this.views.newSubjectButton)
+      return (<div
+        onClick={() => this.handleCreateSubject()}
+        className=" pa3 fr mb3 new-subject-button"></div>
+      );
     return (
       <div
         onClick={() => this.handleCreateSubject()}
-        className="btn-circle bg-green br-100 pa3  mb3"><div>+</div></div>
+        className="btn-circle bg-green br-100 pa3 fr mb3 new-subject-button"><div>+</div></div>
     );
   }
 
@@ -135,8 +140,17 @@ export class Subjects extends React.Component {
     return (
       <div className="outline flex vh-75">
         <div className="fl w-25 ">
-          <h1 className="f3 pl2">subjects</h1>
+          <div className="flex-column flex bg-bright-blue subject-title">
+            <div>
+              {this.renderNewSubjectButton(this.state.newSubjectView)}
+            </div>
+            <div>
+              <h1 className="f3 white normal pl4">Subjects</h1>
+            </div>
+          </div>
           <div className="flex flex-column items-center h-100 overflow-y-scroll">
+            <small className="gray pv2">These are the Worlds your students see</small>
+            {this.renderSubjectForm(this.state.newSubjectView)}
             {subjects.map((quiz, id) =>
               <Subject
                 key={id}
@@ -145,15 +159,16 @@ export class Subjects extends React.Component {
                 {...quiz}
               />
             )}
-            {this.renderSubjectForm(this.state.newSubjectView)}
-            {this.renderNewSubjectButton(this.state.newSubjectView)}
           </div>
         </div>
 
         {/*
           PLACE QUIZ COMPONENT HERE!!!!!!!!
         */}
-        <QuizCreate className="fl w-75 tc" subject={this.state.currentSubject}/>
+        {this.state.currentSubject
+          ? <QuizCreate className="fl w-75 tc" subject={this.state.currentSubject}/>
+          : <div>TODO: add class</div>
+        }
       </div>
 
     );
@@ -162,15 +177,20 @@ export class Subjects extends React.Component {
 
 function Subject({ name, quizzes, onClick, onDelete }) {
   return (
-    <div className="w-90 card centermw6 br3 b--black-10 mv4">
-      <div className="bg-near-white black-60 pv1 ph3 flex items-center justify-between">
-        <h1 onClick={onClick} className="ttu f4 ">{name}</h1>
-        <span onClick={onDelete} className="pointer">X</span>
+    <Card title={name} onClose={onDelete} onTitleClick={onClick}>
+      <div className="">
+        <div className="">
+          <div className="flex-column flex items-center">
+            {quizzes.map((quiz, id, a) => 
+              <Quiz key={id} name={quiz} isLast={id === (a.length - 1)}/>
+            )}
+            {quizzes.length === 0 &&
+                <button onClick={onClick} className="pointer w-70 ma2 bn pa2 bg-green pa2 br2">Add Quiz</button>
+            }
+          </div>
+        </div>
       </div>
-      <div className="pa3 b--black-10">
-        {quizzes.map((quiz, id) => <div key={id}>{quiz}</div>)}
-      </div>
-    </div>
+    </Card>
   );
 }
 
@@ -179,4 +199,16 @@ Subject.propTypes = {
   quizzes: PropTypes.array,
   onClick: PropTypes.func,
   onDelete: PropTypes.func,
+};
+
+function Quiz({ name, isLast }) {
+  return (
+    <div className={`quiz-hover w-100 pv2 ph3 tc ${!isLast ? 'bb' : ''} b--light-gray`}>
+      {name}
+    </div>
+  );
+}
+Quiz.propTypes = {
+  name: PropTypes.string.isRequired,
+  isLast: PropTypes.bool.isRequired,
 };

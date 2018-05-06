@@ -43,3 +43,16 @@
   box-shadow: 0 7px 14px rgba(50,50,93,.1),0 3px 6px rgba(0,0,0,.08);
 }
 
+.new-subject-button {
+  position: relative;
+  top: 101px; 
+}
+
+.subject-title {
+  min-height: 133px;
+}
+
+.quiz-hover:hover {
+  border-right: 3px solid #Ba68c8;
+  color: #8e24aa;
+}
