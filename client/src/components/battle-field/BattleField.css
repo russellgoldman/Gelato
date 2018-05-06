@@ -1,7 +1,6 @@
 .battle-top-container{
     display: flex;
     flex-direction: row;
-    transform: translateX(10%)
 }
 
 h3{
@@ -25,6 +24,10 @@ h3{
     flex-grow: 1;
 }
 
+.monster-sprite .monster-name{
+    margin-left: 40px;
+}
+
 .monster-sprite img{
     width: 200px;
     height:200px;  
@@ -32,5 +35,5 @@ h3{
 
 .move-user {
     transition-duration: 0.5s;
-    transform: translateX(400px); /* Equal to translate(10px) */
+    transform: translateX(530px); /* Equal to translate(10px) */
 }

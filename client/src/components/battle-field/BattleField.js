@@ -53,7 +53,7 @@ class BattleField extends Component {
             </div>
 
             <div className='monster-sprite'>
-              <h3>Scary Monster</h3>
+              <h3 className='monster-name'>Scary Monster</h3>
               <img src={monsterSprite} alt='monster sprite'></img>
             </div>
           </div>

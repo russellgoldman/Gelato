@@ -1,3 +1,7 @@
+.question-container{
+    margin-top: 10%;
+}
+
 .question-info{
     position: relative;
     right: -4%;
@@ -8,6 +12,10 @@
     /* left: 40%; */
 
     color:red;
+}
+
+.question-info{
+    color: red;
 }
 
 button{
