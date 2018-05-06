@@ -9,15 +9,16 @@ h3{
 
 .user-sprite{
     flex-grow: 1;
+    transform: translateY(20px);
 }
 
 .user-sprite img{
-    width: 300px;
+    width: 200px;
     height:200px;
 }
 
 .user-sprite .player-name{
-    margin-left: 15%;
+    margin-left: 5%;
 }
 
 .monster-sprite{
@@ -30,10 +31,41 @@ h3{
 
 .monster-sprite img{
     width: 200px;
-    height:200px;  
+    height: 200px;  
 }
 
 .move-user {
     transition-duration: 0.5s;
-    transform: translateX(530px); /* Equal to translate(10px) */
+    transform: translateX(470px);
+}
+
+
+.move-monster .hit-box{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.5;
+    transform: translate(850px, 140px);
+    border-radius: 50%;
+}
+
+.hit-box h1{
+    visibility: hidden;
+}
+
+.move-monster .hit-box h1{
+    visibility: visible;
+    font-size: 60px;
+    color: white;
+    transform: translate(70px, 30px);
+}
+
+.hit-ui{
+    position: absolute;
+    left: 60%;
 }

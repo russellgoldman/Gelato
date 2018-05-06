@@ -1,3 +1,7 @@
+*{
+  overflow-x: hidden;
+}
+
 .App {
   text-align: center;
 }
@@ -31,6 +35,7 @@
 
 .battle-screen-container{
   background-image: url("battle-scene.jpg");
+  background-size: cover;
   flex-grow: 4;
 }
 
