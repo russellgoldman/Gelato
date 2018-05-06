@@ -71,3 +71,9 @@ h3{
     left: 62%;
     top: 30%;
 }
+
+.answer-response-ui{
+    position: absolute;
+    left: 42%;
+    top: 10%;   
+}
