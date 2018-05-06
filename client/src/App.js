@@ -111,6 +111,8 @@ class App extends Component {
             removeSubject: this.removeSubjectFromActiveCourse,
           }}
         />)
+        default:
+           console.log("noooooo");
       }
     }
     return (
@@ -124,7 +126,10 @@ class App extends Component {
   renderLanding() {
     if (this.state.currentView !== views.LANDING) return;
     return (
-       <LandingPage />
+       <LandingView
+         onStudentClick={() => console.log("student") ||  this.updateView(views.APP.STUDENT)}
+         onTeacherClick={() => this.updateView(views.APP.TEACHER)}
+           />
     )
   }
   render() {

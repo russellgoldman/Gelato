@@ -13,14 +13,14 @@ export class LandingView extends React.Component {
             <div className='teacher-content'>
                 <h1>Are you a teacher?...</h1>
                 <img src={teacherIcon}></img>
-                <button className='teacher-btn'>Enter</button>
+                <button onClick={this.props.onTeacherClick} className='teacher-btn'>Enter</button>
             </div>
         </div>
         <div className='student-container'>
             <div className='student-content'>
                 <h1>...Or are you a student?</h1>
                 <img src={studentIcon}></img>
-                <button className='student-btn'>Enter</button>
+                <button onClick={this.props.onStudentClick} className='student-btn'>Enter</button>
             </div>
         </div>
     </div>
