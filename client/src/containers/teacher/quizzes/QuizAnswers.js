@@ -106,13 +106,13 @@ export class QuizAnswers extends Component {
   }
 
   toggleCheckbox(id) {
-    if (renderCheckbox[id] === checkboxSelect) {
-      // currently selected, let's unselect it
-      this.setState({renderCheckbox[id]: checkboxNeutral});
-      return;
-    }
-    // otherwise it is unselected, and so we select it
-    this.setState({renderCheckbox[id]: checkboxSelect});
+  //   if (renderCheckbox[id] === checkboxSelect) {
+  //     // currently selected, let's unselect it
+  //     this.setState({renderCheckbox[id]: checkboxNeutral});
+  //     return;
+  //   }
+  //   // otherwise it is unselected, and so we select it
+  //   this.setState({renderCheckbox[id]: checkboxSelect});
   }
 
   render() {
@@ -153,18 +153,18 @@ export class QuizAnswers extends Component {
           </div>
           <div style={styles.answersColumnContainer}>
             <div style={styles.answerRowContainer}>
-              <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle} onclick={this.toggleCheckbox(0)}/>
+              <img src={checkboxSelect} alt='Checkbox Select' style={styles.answerCheckboxStyle} onClick={this.toggleCheckbox(0)}/>
               <input style={styles.answerInputStyle} type="text" value="Option A"/>
               <div style={styles.spaceHorizontal1}/>
-              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle} onclick={this.toggleCheckbox(1)}/>
+              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle} onClick={this.toggleCheckbox(1)}/>
               <input style={styles.answerInputStyle} type="text" value="Option B"/>
             </div>
             <div style={{ flex: 1 }}/>
             <div style={styles.answerRowContainer}>
-              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle} onclick={this.toggleCheckbox(2)}/>
+              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle} onClick={this.toggleCheckbox(2)}/>
               <input style={styles.answerInputStyle} type="text" value="Option C"/>
               <div style={styles.spaceHorizontal1}/>
-              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle} onclick={this.toggleCheckbox(3)}/>
+              <img src={checkboxNeutral} alt='Checkbox Neutral' style={styles.answerCheckboxStyle} onClick={this.toggleCheckbox(3)}/>
               <input style={styles.answerInputStyle} type="text" value="Option D"/>
             </div>
             <div style={{ flex: 2 }}/>
