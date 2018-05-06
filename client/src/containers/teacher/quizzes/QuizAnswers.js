@@ -1,53 +1,45 @@
 import React, { Component } from 'react';
-import {
-  greenHillZone,
-  hyruleCastle,
-  luigiMansion,
-  pokemonLeague
-} from '../../../images/maps';
 import { capitalizeFirstLetter } from '../../../misc-utilities';
 
-export class QuizCreate extends Component {
+export class QuizAnswers extends Component {
   constructor(props) {
     super(props);
 
-    // if the quiz name input has not yet been clicked, then the placeholder text will disappear on the first click
-    this.quizNamePlaceholder = this.passingGradePlaceHolder = true;
-
     this.state = {
-      quizName: 'Name of the quiz',
-      passingGrade: 'Grade needed to slay the monster',
-      statusLocked: true,   // false is unlocked
-      maps: [
+      quizName: this.props.quizName,
+      statusLocked: this.props.statusLocked,
+      data: [
         {
-          mapName: "Green Hill Zone",
-          imgSrc: {greenHillZone}
-        },
-        {
-          mapName: "Hyrule Castle",
-          imgSrc: {hyruleCastle}
-        },
-        {
-          mapName: "Luigi's Mansion",
-          imgSrc: {luigiMansion}
-        },
-        {
-          mapName: "Pokémon League",
-          imgSrc: {pokemonLeague}
+          questionName: 'What is 2 x 2?',
+          questionType: 0,
+          answers: ['5', '1', '4', '3'],
+          correctAnswerIndex: 2     // in the answers array
         }
-      ]
+      ],
+      questionType: {
+        // enumeration
+        multipleChoice: {
+          id: 0,
+          chooseFrom: 4   // how many available answers are given
+        },
+        written: {
+          id: 1,
+          chooseFrom: 1
+        },
+        trueOrFalse: {
+          id: 2,
+          chooseFrom: 2
+        }
+      }
     };
   }
 
-  quizNameChange(event) {
-    this.setState({quizName: event.target.value});
+  questionNameChange(event) {
+    this.setState({questionName: event.target.value})
   }
 
-  quizNameClick(event) {
-    if (this.quizNamePlaceholder) {
-      this.setState({quizName: ''});
-      this.quizNamePlaceholder = false;
-    }
+  questionNameClick(event) {
+    // todo
   }
 
   passingGradeChange(event) {
@@ -79,7 +71,7 @@ export class QuizCreate extends Component {
     }
   }
 
-  renderStatusButtons() {
+  renderQuestionTypeButtons() {
     if (this.state.statusLocked) {
       // locked is active
       return (
@@ -109,13 +101,6 @@ export class QuizCreate extends Component {
     );
   }
 
-  displayQuizName() {
-    if (this.state.quizName !== 'Name of the quiz') {
-      return this.state.quizName;
-    }
-    return 'New Quiz';
-  }
-
   render() {
     return (
       <div style={styles.outerContainer}>
@@ -123,46 +108,34 @@ export class QuizCreate extends Component {
         <div style={styles.innerContainer}>
           <div style={styles.subjectContainer}>
             <p style={{ color: '#F5f5f5', marginLeft: '12px', paddingTop: '20px', marginBottom: '-8px' }}>Subject > {capitalizeFirstLetter(this.props.subject.name)}</p>
-            <h1 style={{ color: '#343452', marginLeft: '12px' }}>{this.displayQuizName()}</h1>
+            <h1 style={{ color: '#343452', marginLeft: '12px' }}>{this.state.quizName}</h1>
           </div>
           <div style={styles.spaceHorizontal}>
           </div>
-          <div style={styles.quizInputFormContainer}>
+          <div style={styles.questionInputFormContainer}>
             <form>
               <label style={{ fontFamily: 'Helvetica', fontSize: '22px', fontWeight: 'bold' }}>
-                Name
+                Question 1
                 <div>
                   <div style={{ margin: '10px' }}/>
-                  <input style={styles.quizNameInputStyle} type="text" value={this.state.quizName}
-                    onChange={this.quizNameChange.bind(this)} onClick={this.quizNameClick.bind(this)} />
+                  <input style={styles.questionInputStyle} type="text" value={this.state.questionName}
+                    onChange={this.questionNameChange.bind(this)} onClick={this.questionNameClick.bind(this)} />
                 </div>
               </label>
             </form>
           </div>
-          <div style={styles.quizInputFormContainer}>
-            <form>
-              <label style={{ fontFamily: 'Helvetica', fontSize: '22px', fontWeight: 'bold' }}>
-                <div>
-                  <p style={{ display: 'inline', fontFamily: 'Helvetica',
-                    fontSize: '22px', fontWeight: 'bold' }}>Passing Grade (%)</p>
-                  <div style={{ margin: '10px' }}/>
-                  <input style={styles.passingGradeInputStyle} type="text" value={this.state.passingGrade}
-                    onChange={this.passingGradeChange.bind(this)} onClick={this.passingGradeClick.bind(this)} />
-                </div>
-              </label>
-            </form>
-          </div>
-          <div style={styles.statusContainer}>
-            <p style={{ display: 'inline', fontFamily: 'Helvetica', fontSize: '22px', fontWeight: 'bold' }}>Status</p>
-            <p style={{ display: 'inline', color: 'gray',fontFamily: 'Helvetica',
-              fontSize: '16px'}}> - If quiz is accessible to students</p>
+          <div style={styles.questionTypeContainer}>
+            <p style={{ display: 'inline', fontFamily: 'Helvetica', fontSize: '22px', fontWeight: 'bold' }}>Question Type</p>
             <div style={{ margin: '10px' }}/>
             <div>
-              {this.renderStatusButtons()}
+              {this.renderQuestionTypeButtons()}
             </div>
           </div>
-          <div>
-            <button style={styles.nextButtonContainer} type="button">Next</button>
+          <div style={{ display: 'flex', flex: 1, flexDirection: 'row', maxHeight: '45px' }}>
+            <button style={styles.deleteQuestionButtonContainer} type="button">Delete Question</button>
+            <button style={styles.addQuestionButtonContainer} type="button">Add Question</button>
+            <div style={{ flex: 1 }}/>
+            <button style={styles.saveAndPublishButtonContainer} type="button">Save and Publish</button>
           </div>
           <div style={styles.spaceHorizontal}/>
         </div>
@@ -195,13 +168,13 @@ const styles = {
   spaceHorizontal: {
     flex: 0.2
   },
-  quizInputFormContainer: {
+  questionInputFormContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: '10px'
   },
-  quizNameInputStyle: {
+  questionInputStyle: {
     marginTop: '5px',
     width: '500px',
     fontSize: '15px'
@@ -211,7 +184,7 @@ const styles = {
     width: '500px',
     fontSize: '15px'
   },
-  statusContainer: {
+  questionTypeContainer: {
     flex: 1,
     marginLeft: '10px'
   },
@@ -233,12 +206,37 @@ const styles = {
     borderRadius: '5px',
     borderColor: '#c9c9c9'
   },
-  nextButtonContainer: {
+  deleteQuestionButtonContainer: {
+    flex: 1,
+    backgroundColor: '#Bdbdbd',
+    color: 'white',
+    padding: '7px 50px',
+    textAlign: 'center',
+    fontSize: '14px',
+    borderRadius: '5px',
+    borderColor: '#c9c9c9',
+    marginLeft: '10px',
+    marginBottom: '2px'
+  },
+  addQuestionButtonContainer: {
+    flex: 1,
+    backgroundColor: '#Ba68c8',
+    color: 'white',
+    padding: '7px 50px',
+    textAlign: 'center',
+    fontSize: '14px',
+    borderRadius: '5px',
+    borderColor: '#c9c9c9',
+    marginLeft: '10px',
+    marginBottom: '2px'
+  },
+  saveAndPublishButtonContainer: {
+    flex: 1,
     backgroundColor: '#4db6ac',
     color: 'white',
-    padding: '7px 70px',
+    padding: '7px 50px',
     textAlign: 'center',
-    fontSize: '16px',
+    fontSize: '14px',
     borderRadius: '5px',
     borderColor: '#c9c9c9',
     marginLeft: '10px',

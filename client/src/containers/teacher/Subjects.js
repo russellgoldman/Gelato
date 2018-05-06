@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import './subjects.css';
-import { QuizCreate } from './quizzes/QuizCreate.js';
+import {QuizCreate} from './quizzes/QuizCreate.js';
+import {QuizAnswers} from './quizzes/QuizAnswers.js';
 
 export class Subjects extends React.Component {
   constructor(props) {
@@ -153,7 +154,8 @@ export class Subjects extends React.Component {
         {/*
           PLACE QUIZ COMPONENT HERE!!!!!!!!
         */}
-        <QuizCreate className="fl w-75 tc" subject={this.state.currentSubject}/>
+        {/*<QuizCreate className="fl w-75 tc" subject={this.state.currentSubject}/>*/}
+        <QuizAnswers className="fl w-75 tc" quizName='Multiplication 1' statusLocked={true} subject={this.state.currentSubject}/>
       </div>
 
     );
