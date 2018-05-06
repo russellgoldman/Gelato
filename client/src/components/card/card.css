@@ -1,0 +1,33 @@
+.card-container {
+  background-color: #e09eed;
+  width: 90%;
+  margin-top: 1rem;
+  box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
+  border-radius: 0.5rem;
+}
+
+.card-title {
+  padding: 0.4rem;
+  padding-left: 1rem;
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+
+.card-body {
+  background-color: white;
+}
+
+.input-card-input {
+  font-weight: normal;
+  margin-left: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border: none;
+  font-size: 1.2rem;
+  background: transparent;
+  width: 100%;
+}
+
+.x-hover:hover {
+  color: white;
+}
