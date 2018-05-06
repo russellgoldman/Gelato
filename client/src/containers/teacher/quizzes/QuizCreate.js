@@ -129,7 +129,7 @@ export class QuizCreate extends Component {
           </div>
           <div style={styles.quizInputFormContainer}>
             <form>
-              <label style={{ fontFamily: 'Helvetica', fontSize: '22px', fontWeight: 'bold' }}>
+              <label style={{ fontFamily: 'Roboto', fontSize: '22px', fontWeight: 'bold' }}>
                 Name
                 <div>
                   <div style={{ margin: '10px' }}/>
@@ -141,10 +141,9 @@ export class QuizCreate extends Component {
           </div>
           <div style={styles.quizInputFormContainer}>
             <form>
-              <label style={{ fontFamily: 'Helvetica', fontSize: '22px', fontWeight: 'bold' }}>
-
+              <label style={{ fontFamily: 'Roboto', fontSize: '22px', fontWeight: 'bold' }}>
                 <div>
-                  <p style={{ display: 'inline', fontFamily: 'Helvetica',
+                  <p style={{ display: 'inline', fontFamily: 'Roboto',
                     fontSize: '22px', fontWeight: 'bold' }}>Passing Grade (%)</p>
                   <div style={{ margin: '10px' }}/>
                   <input style={styles.passingGradeInputStyle} type="text" value={this.state.passingGrade}
@@ -154,8 +153,8 @@ export class QuizCreate extends Component {
             </form>
           </div>
           <div style={styles.statusContainer}>
-            <p style={{ display: 'inline', fontFamily: 'Helvetica', fontSize: '22px', fontWeight: 'bold' }}>Status</p>
-            <p style={{ display: 'inline', color: 'gray',fontFamily: 'Helvetica',
+            <p style={{ display: 'inline', fontFamily: 'Roboto', fontSize: '22px', fontWeight: 'bold' }}>Status</p>
+            <p style={{ display: 'inline', color: 'gray',fontFamily: 'Roboto',
               fontSize: '16px'}}> - If quiz is accessible to students</p>
             <div style={{ margin: '10px' }}/>
             <div>
@@ -191,7 +190,7 @@ const styles = {
   },
   subjectContainer: {
     flex: 1,
-    backgroundColor: '#9fa8da'
+    backgroundColor: '#9AA9FF'
   },
   spaceHorizontal: {
     flex: 0.2
@@ -235,11 +234,11 @@ const styles = {
     borderColor: '#c9c9c9'
   },
   nextButtonContainer: {
-    backgroundColor: '#3f51b5',
+    backgroundColor: '#4db6ac',
     color: 'white',
-    padding: '7px 50px',
+    padding: '7px 70px',
     textAlign: 'center',
-    fontSize: '14px',
+    fontSize: '16px',
     borderRadius: '5px',
     borderColor: '#c9c9c9',
     marginLeft: '10px',

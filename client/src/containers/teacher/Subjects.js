@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { InputCard, Card } from '../../components/card';
 
 import './subjects.css';
-import { QuizCreate } from './quizzes/QuizCreate.js';
+import {QuizCreate} from './quizzes/QuizCreate.js';
+import {QuizAnswers} from './quizzes/QuizAnswers.js';
 
 export class Subjects extends React.Component {
   constructor(props) {
@@ -165,8 +166,9 @@ export class Subjects extends React.Component {
         {/*
           PLACE QUIZ COMPONENT HERE!!!!!!!!
         */}
+
         {this.state.currentSubject
-          ? <QuizCreate className="fl w-60 tc" subject={this.state.currentSubject}/>
+          ? <QuizAnswers className="fl w-75 tc" quizName='Multiplication 1' statusLocked={true} subject={this.state.currentSubject}/>
           : <div>TODO: add class</div>
         }
       </div>
