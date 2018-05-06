@@ -44,7 +44,7 @@ export class StudentView extends React.Component {
             5
           ],
           correctAnswer: 8,
-          monster: monsterSprite
+          monster: greenMonster
         },
         {
           id: 2,
@@ -56,7 +56,7 @@ export class StudentView extends React.Component {
             30
           ],
           correctAnswer: 25,
-          monster: monsterSprite
+          monster: mushroomMonster
         }
       ],
       currentQuestionId: 0,
@@ -89,8 +89,9 @@ export class StudentView extends React.Component {
     console.log("stopped!");
     let new_question_num = this.state.currentQuestionId + 1;
     if (new_question_num >= this.state.questions.length) {
+      new_question_num = 0;
       // redirect to landing page if quiz is complete
-      return <Redirect to=".././landing/index.js"/>;
+      // return <Redirect to=".././landing/index.js"/>;
     };
     this.setState({
       prevAnswer: null,
