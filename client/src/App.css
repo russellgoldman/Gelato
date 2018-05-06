@@ -61,6 +61,21 @@
   bottom: 10%;
 }
 
+.greeting-msg{
+  position: absolute;
+  top:10%;
+  left: 23%;
+  width: 50%;
+}
+
+.course-msg{
+  position: absolute;
+  top:10%;
+  left: 39%;
+  width: 50%; 
+  color: #3f51b5;
+}
+
 .play-btn{
   position: absolute;
   bottom: 3%;

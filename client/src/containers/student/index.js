@@ -22,7 +22,7 @@ export class StudentView extends React.Component {
       questions: [
         {
           id: 0,
-          question: "What is 2x2",
+          question: "What do you get when you multiply 2 by 2?",
           answers: [
             1,
             4,
@@ -34,7 +34,7 @@ export class StudentView extends React.Component {
         },
         {
           id: 1,
-          question: "What is 2x4",
+          question: "What do you get when you multiply 2 by 4?",
           answers: [
             1,
             2,
@@ -46,7 +46,7 @@ export class StudentView extends React.Component {
         },
         {
           id: 2,
-          question: "What is 5x5",
+          question: "What do you get when you multiply 5 by 5?",
           answers: [
             25,
             50,
@@ -95,13 +95,14 @@ export class StudentView extends React.Component {
 
   render () {
     return (<div>
-        {/* <div className='screen-container'> 
+        <div className='screen-container'> 
           <StudentSideNav />
           <div className='battle-screen-container'>
             <BattleField {...this.state.questions[this.state.currentQuestionId]} onAnimationComplete={this.stopAttack} attack={this.state.attack} hit={this.state.correctAnswer} />
             <MCQuestion {...this.state.questions[this.state.currentQuestionId]} onAnswerSelected={this.handleAnswer}/>
           </div>
-        </div> */}
+        </div>
+      {/* <h2 className='greeting-msg'>Hi Alice, Welcome to</h2> <h2 className='course-msg'>Grade 5 Math!</h2>
       <div className='main-screen'>
         <StudentSideNav />
         <StudentClassSelect />
@@ -110,7 +111,7 @@ export class StudentView extends React.Component {
           <SideQuestSelect />
         </div>
       </div>
-      <div><button className='play-btn'>PLAY</button></div>
+      <div><button className='play-btn'>PLAY</button></div> */}
     </div>);
   }
 }

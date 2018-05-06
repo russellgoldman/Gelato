@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import userSprite from './user-sprite4.png';
+import userSprite from './user-sprite2.svg';
 import monsterSprite from './dragon.png';
 import greenMonster from './green-monster.png';
 import './BattleField.css';

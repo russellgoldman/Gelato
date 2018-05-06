@@ -26,7 +26,7 @@ class  StudentSideNav extends Component {
             <div className='rectangle'><h5>5 Quests Complete</h5></div>
           </div>
           <div className='extra-info'>
-            <h3 className='level-stat'>Curent Level: 1</h3>
+            <h3 className='level-stat'>Current Level: 1</h3>
             <h3 className='map-stat'>Map: Division</h3>
             <h3 className='dungeon-stat'>Dungeon 1</h3>
           </div>

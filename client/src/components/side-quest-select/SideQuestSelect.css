@@ -43,6 +43,7 @@
     opacity: 0.6;
     border: none;
     border-radius: 10px;
+    color: black;
   }
 
   .side-quest-item:hover{
@@ -55,4 +56,5 @@
     opacity: 1;
     border: none;
     border-radius: 10px;
+    color: white;
   }
