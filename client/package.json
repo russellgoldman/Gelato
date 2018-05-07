@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://russellgoldman.github.io/Project-Gelato/",
+  "homepage": "https://russellgoldman.github.io/Gelato/",
   "dependencies": {
     "react": "^16.2.0",
     "react-tabs": "^2.2.2",
