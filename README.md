@@ -1,6 +1,7 @@
 # Gelato
 
 **Live Demo**
+
 https://russellgoldman.github.io/Project-Gelato/
 
 **Equithon 2018 Submission**
