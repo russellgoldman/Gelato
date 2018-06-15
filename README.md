@@ -1,11 +1,13 @@
 # Gelato
+
+**Live Demo**
 https://russellgoldman.github.io/Project-Gelato/
 
-Equithon 2018 Submission
+**Equithon 2018 Submission**
 
 https://equithon.org/
 
-Submission Page
+**Submission Page**
 
 https://devpost.com/software/gelato
 
