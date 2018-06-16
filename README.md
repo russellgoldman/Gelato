@@ -21,5 +21,5 @@ Our web app allows teachers to put together education content such as quizzes an
 # How we built it
 We used React.js, HTML, CSS, JavaScript and Node.js to build this app.
 
-# Challanges
+# Challenges
 Being able to time manage and prioritize features was a challenge as we had many more feature ideas than could be implemented in a weekend.
